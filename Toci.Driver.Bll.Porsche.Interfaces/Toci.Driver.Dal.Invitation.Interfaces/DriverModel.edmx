@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DriverModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CarDictionary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarType" Type="text" />
+        </EntityType>
+        <EntityType Name="Cars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LicensePlate" Type="text" />
+          <Property Name="IdCarTypeDictionary" Type="bigint" />
+          <Property Name="IdColour" Type="bigint" />
+        </EntityType>
+        <EntityType Name="CarsUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsers" Type="bigint" />
+          <Property Name="IdCars" Type="bigint" />
+        </EntityType>
+        <EntityType Name="CarTypeDictionary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCarDictionary" Type="bigint" />
+          <Property Name="CarType" Type="text" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="text" />
+        </EntityType>
+        <EntityType Name="Colours">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="text" />
+        </EntityType>
+        <EntityType Name="Friends">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUser" Type="bigint" />
+          <Property Name="IdUserFriend" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="text" />
+          <Property Name="Password" Type="text" />
+          <Property Name="IdUserType" Type="bigint" />
+        </EntityType>
+        <EntityType Name="UserTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserType" Type="text" />
+        </EntityType>
+        <EntityType Name="WorkTrip">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUser" Type="bigint" />
+          <Property Name="IdCityFrom" Type="bigint" />
+          <Property Name="IdCityTo" Type="bigint" />
+          <Property Name="FromLongitude" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FromLatitude" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FromStreet" Type="text" />
+          <Property Name="ToLongitude" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ToLatitude" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ToStreet" Type="text" />
+          <Property Name="FromHour" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ToHour" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AcceptableDistance" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <Association Name="FK__Cars__IdCarTypeD__52593CB8">
+          <End Role="CarTypeDictionary" Type="Self.CarTypeDictionary" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarTypeDictionary">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="IdCarTypeDictionary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cars__IdColour__534D60F1">
+          <End Role="Colours" Type="Self.Colours" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colours">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="IdColour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CarsUsers__IdCar__59FA5E80">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="0..1" />
+          <End Role="CarsUsers" Type="Self.CarsUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarsUsers">
+              <PropertyRef Name="IdCars" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CarsUsers__IdUse__59063A47">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="CarsUsers" Type="Self.CarsUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarsUsers">
+              <PropertyRef Name="IdUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CarTypeDi__IdCar__4D94879B">
+          <End Role="CarDictionary" Type="Self.CarDictionary" Multiplicity="0..1" />
+          <End Role="CarTypeDictionary" Type="Self.CarTypeDictionary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarDictionary">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarTypeDictionary">
+              <PropertyRef Name="IdCarDictionary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Friends__IdUser__6383C8BA">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Friends" Type="Self.Friends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Friends">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Friends__IdUserF__6477ECF3">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Friends" Type="Self.Friends" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Friends">
+              <PropertyRef Name="IdUserFriend" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdUserTyp__5629CD9C">
+          <End Role="UserTypes" Type="Self.UserTypes" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdUserType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WorkTrip__IdCity__5FB337D6">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="WorkTrip" Type="Self.WorkTrip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkTrip">
+              <PropertyRef Name="IdCityFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WorkTrip__IdCity__60A75C0F">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="WorkTrip" Type="Self.WorkTrip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkTrip">
+              <PropertyRef Name="IdCityTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WorkTrip__IdUser__5EBF139D">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="WorkTrip" Type="Self.WorkTrip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkTrip">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DriverModelStoreContainer">
+          <EntitySet Name="CarDictionary" EntityType="Self.CarDictionary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarsUsers" EntityType="Self.CarsUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarTypeDictionary" EntityType="Self.CarTypeDictionary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Colours" EntityType="Self.Colours" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Friends" EntityType="Self.Friends" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkTrip" EntityType="Self.WorkTrip" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cars__IdCarTypeD__52593CB8" Association="Self.FK__Cars__IdCarTypeD__52593CB8">
+            <End Role="CarTypeDictionary" EntitySet="CarTypeDictionary" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cars__IdColour__534D60F1" Association="Self.FK__Cars__IdColour__534D60F1">
+            <End Role="Colours" EntitySet="Colours" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CarsUsers__IdCar__59FA5E80" Association="Self.FK__CarsUsers__IdCar__59FA5E80">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="CarsUsers" EntitySet="CarsUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CarsUsers__IdUse__59063A47" Association="Self.FK__CarsUsers__IdUse__59063A47">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CarsUsers" EntitySet="CarsUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CarTypeDi__IdCar__4D94879B" Association="Self.FK__CarTypeDi__IdCar__4D94879B">
+            <End Role="CarDictionary" EntitySet="CarDictionary" />
+            <End Role="CarTypeDictionary" EntitySet="CarTypeDictionary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Friends__IdUser__6383C8BA" Association="Self.FK__Friends__IdUser__6383C8BA">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Friends" EntitySet="Friends" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Friends__IdUserF__6477ECF3" Association="Self.FK__Friends__IdUserF__6477ECF3">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Friends" EntitySet="Friends" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdUserTyp__5629CD9C" Association="Self.FK__Users__IdUserTyp__5629CD9C">
+            <End Role="UserTypes" EntitySet="UserTypes" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WorkTrip__IdCity__5FB337D6" Association="Self.FK__WorkTrip__IdCity__5FB337D6">
+            <End Role="City" EntitySet="City" />
+            <End Role="WorkTrip" EntitySet="WorkTrip" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WorkTrip__IdCity__60A75C0F" Association="Self.FK__WorkTrip__IdCity__60A75C0F">
+            <End Role="City" EntitySet="City" />
+            <End Role="WorkTrip" EntitySet="WorkTrip" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WorkTrip__IdUser__5EBF139D" Association="Self.FK__WorkTrip__IdUser__5EBF139D">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="WorkTrip" EntitySet="WorkTrip" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DriverModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CarDictionary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CarTypeDictionaries" Relationship="Self.FK__CarTypeDi__IdCar__4D94879B" FromRole="CarDictionary" ToRole="CarTypeDictionary" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LicensePlate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdCarTypeDictionary" Type="Int64" />
+          <Property Name="IdColour" Type="Int64" />
+          <NavigationProperty Name="CarTypeDictionary" Relationship="Self.FK__Cars__IdCarTypeD__52593CB8" FromRole="Cars" ToRole="CarTypeDictionary" />
+          <NavigationProperty Name="Colour" Relationship="Self.FK__Cars__IdColour__534D60F1" FromRole="Cars" ToRole="Colours" />
+          <NavigationProperty Name="CarsUsers" Relationship="Self.FK__CarsUsers__IdCar__59FA5E80" FromRole="Cars" ToRole="CarsUsers" />
+        </EntityType>
+        <EntityType Name="CarsUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsers" Type="Int64" />
+          <Property Name="IdCars" Type="Int64" />
+          <NavigationProperty Name="Car" Relationship="Self.FK__CarsUsers__IdCar__59FA5E80" FromRole="CarsUsers" ToRole="Cars" />
+          <NavigationProperty Name="User" Relationship="Self.FK__CarsUsers__IdUse__59063A47" FromRole="CarsUsers" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="CarTypeDictionary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCarDictionary" Type="Int64" />
+          <Property Name="CarType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CarDictionary" Relationship="Self.FK__CarTypeDi__IdCar__4D94879B" FromRole="CarTypeDictionary" ToRole="CarDictionary" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK__Cars__IdCarTypeD__52593CB8" FromRole="CarTypeDictionary" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="WorkTrips" Relationship="Self.FK__WorkTrip__IdCity__5FB337D6" FromRole="City" ToRole="WorkTrip" />
+          <NavigationProperty Name="WorkTrips1" Relationship="Self.FK__WorkTrip__IdCity__60A75C0F" FromRole="City" ToRole="WorkTrip" />
+        </EntityType>
+        <EntityType Name="Colour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK__Cars__IdColour__534D60F1" FromRole="Colours" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="Friend">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUser" Type="Int64" />
+          <Property Name="IdUserFriend" Type="Int64" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Friends__IdUser__6383C8BA" FromRole="Friends" ToRole="Users" />
+          <NavigationProperty Name="User1" Relationship="Self.FK__Friends__IdUserF__6477ECF3" FromRole="Friends" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IdUserType" Type="Int64" />
+          <NavigationProperty Name="CarsUsers" Relationship="Self.FK__CarsUsers__IdUse__59063A47" FromRole="Users" ToRole="CarsUsers" />
+          <NavigationProperty Name="Friends" Relationship="Self.FK__Friends__IdUser__6383C8BA" FromRole="Users" ToRole="Friends" />
+          <NavigationProperty Name="Friends1" Relationship="Self.FK__Friends__IdUserF__6477ECF3" FromRole="Users" ToRole="Friends" />
+          <NavigationProperty Name="UserType" Relationship="Self.FK__Users__IdUserTyp__5629CD9C" FromRole="Users" ToRole="UserTypes" />
+          <NavigationProperty Name="WorkTrips" Relationship="Self.FK__WorkTrip__IdUser__5EBF139D" FromRole="Users" ToRole="WorkTrip" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserType1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__IdUserTyp__5629CD9C" FromRole="UserTypes" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="WorkTrip">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUser" Type="Int64" />
+          <Property Name="IdCityFrom" Type="Int64" />
+          <Property Name="IdCityTo" Type="Int64" />
+          <Property Name="FromLongitude" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FromLatitude" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FromStreet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ToLongitude" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ToLatitude" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ToStreet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FromHour" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ToHour" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AcceptableDistance" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="City" Relationship="Self.FK__WorkTrip__IdCity__5FB337D6" FromRole="WorkTrip" ToRole="City" />
+          <NavigationProperty Name="City1" Relationship="Self.FK__WorkTrip__IdCity__60A75C0F" FromRole="WorkTrip" ToRole="City" />
+          <NavigationProperty Name="User" Relationship="Self.FK__WorkTrip__IdUser__5EBF139D" FromRole="WorkTrip" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK__CarTypeDi__IdCar__4D94879B">
+          <End Role="CarDictionary" Type="Self.CarDictionary" Multiplicity="0..1" />
+          <End Role="CarTypeDictionary" Type="Self.CarTypeDictionary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarDictionary">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarTypeDictionary">
+              <PropertyRef Name="IdCarDictionary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cars__IdCarTypeD__52593CB8">
+          <End Role="CarTypeDictionary" Type="Self.CarTypeDictionary" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarTypeDictionary">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="IdCarTypeDictionary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cars__IdColour__534D60F1">
+          <End Role="Colours" Type="Self.Colour" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colours">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="IdColour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CarsUsers__IdCar__59FA5E80">
+          <End Role="Cars" Type="Self.Car" Multiplicity="0..1" />
+          <End Role="CarsUsers" Type="Self.CarsUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarsUsers">
+              <PropertyRef Name="IdCars" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CarsUsers__IdUse__59063A47">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="CarsUsers" Type="Self.CarsUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarsUsers">
+              <PropertyRef Name="IdUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WorkTrip__IdCity__5FB337D6">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="WorkTrip" Type="Self.WorkTrip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkTrip">
+              <PropertyRef Name="IdCityFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WorkTrip__IdCity__60A75C0F">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="WorkTrip" Type="Self.WorkTrip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkTrip">
+              <PropertyRef Name="IdCityTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Friends__IdUser__6383C8BA">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Friends" Type="Self.Friend" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Friends">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Friends__IdUserF__6477ECF3">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Friends" Type="Self.Friend" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Friends">
+              <PropertyRef Name="IdUserFriend" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdUserTyp__5629CD9C">
+          <End Role="UserTypes" Type="Self.UserType" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdUserType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WorkTrip__IdUser__5EBF139D">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="WorkTrip" Type="Self.WorkTrip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkTrip">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DriverEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CarDictionaries" EntityType="Self.CarDictionary" />
+          <EntitySet Name="Cars" EntityType="Self.Car" />
+          <EntitySet Name="CarsUsers" EntityType="Self.CarsUser" />
+          <EntitySet Name="CarTypeDictionaries" EntityType="Self.CarTypeDictionary" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Colours" EntityType="Self.Colour" />
+          <EntitySet Name="Friends" EntityType="Self.Friend" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+          <EntitySet Name="WorkTrips" EntityType="Self.WorkTrip" />
+          <AssociationSet Name="FK__CarTypeDi__IdCar__4D94879B" Association="Self.FK__CarTypeDi__IdCar__4D94879B">
+            <End Role="CarDictionary" EntitySet="CarDictionaries" />
+            <End Role="CarTypeDictionary" EntitySet="CarTypeDictionaries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cars__IdCarTypeD__52593CB8" Association="Self.FK__Cars__IdCarTypeD__52593CB8">
+            <End Role="CarTypeDictionary" EntitySet="CarTypeDictionaries" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cars__IdColour__534D60F1" Association="Self.FK__Cars__IdColour__534D60F1">
+            <End Role="Colours" EntitySet="Colours" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CarsUsers__IdCar__59FA5E80" Association="Self.FK__CarsUsers__IdCar__59FA5E80">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="CarsUsers" EntitySet="CarsUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CarsUsers__IdUse__59063A47" Association="Self.FK__CarsUsers__IdUse__59063A47">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CarsUsers" EntitySet="CarsUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WorkTrip__IdCity__5FB337D6" Association="Self.FK__WorkTrip__IdCity__5FB337D6">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="WorkTrip" EntitySet="WorkTrips" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WorkTrip__IdCity__60A75C0F" Association="Self.FK__WorkTrip__IdCity__60A75C0F">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="WorkTrip" EntitySet="WorkTrips" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Friends__IdUser__6383C8BA" Association="Self.FK__Friends__IdUser__6383C8BA">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Friends" EntitySet="Friends" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Friends__IdUserF__6477ECF3" Association="Self.FK__Friends__IdUserF__6477ECF3">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Friends" EntitySet="Friends" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdUserTyp__5629CD9C" Association="Self.FK__Users__IdUserTyp__5629CD9C">
+            <End Role="UserTypes" EntitySet="UserTypes" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WorkTrip__IdUser__5EBF139D" Association="Self.FK__WorkTrip__IdUser__5EBF139D">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="WorkTrip" EntitySet="WorkTrips" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DriverModelStoreContainer" CdmEntityContainer="DriverEntities1">
+          <EntitySetMapping Name="CarDictionaries">
+            <EntityTypeMapping TypeName="DriverModel.CarDictionary">
+              <MappingFragment StoreEntitySet="CarDictionary">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CarType" ColumnName="CarType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cars">
+            <EntityTypeMapping TypeName="DriverModel.Car">
+              <MappingFragment StoreEntitySet="Cars">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
+                <ScalarProperty Name="IdCarTypeDictionary" ColumnName="IdCarTypeDictionary" />
+                <ScalarProperty Name="IdColour" ColumnName="IdColour" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarsUsers">
+            <EntityTypeMapping TypeName="DriverModel.CarsUser">
+              <MappingFragment StoreEntitySet="CarsUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+                <ScalarProperty Name="IdCars" ColumnName="IdCars" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarTypeDictionaries">
+            <EntityTypeMapping TypeName="DriverModel.CarTypeDictionary">
+              <MappingFragment StoreEntitySet="CarTypeDictionary">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdCarDictionary" ColumnName="IdCarDictionary" />
+                <ScalarProperty Name="CarType" ColumnName="CarType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="DriverModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colours">
+            <EntityTypeMapping TypeName="DriverModel.Colour">
+              <MappingFragment StoreEntitySet="Colours">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Friends">
+            <EntityTypeMapping TypeName="DriverModel.Friend">
+              <MappingFragment StoreEntitySet="Friends">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdUserFriend" ColumnName="IdUserFriend" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DriverModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IdUserType" ColumnName="IdUserType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="DriverModel.UserType">
+              <MappingFragment StoreEntitySet="UserTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserType1" ColumnName="UserType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkTrips">
+            <EntityTypeMapping TypeName="DriverModel.WorkTrip">
+              <MappingFragment StoreEntitySet="WorkTrip">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdCityFrom" ColumnName="IdCityFrom" />
+                <ScalarProperty Name="IdCityTo" ColumnName="IdCityTo" />
+                <ScalarProperty Name="FromLongitude" ColumnName="FromLongitude" />
+                <ScalarProperty Name="FromLatitude" ColumnName="FromLatitude" />
+                <ScalarProperty Name="FromStreet" ColumnName="FromStreet" />
+                <ScalarProperty Name="ToLongitude" ColumnName="ToLongitude" />
+                <ScalarProperty Name="ToLatitude" ColumnName="ToLatitude" />
+                <ScalarProperty Name="ToStreet" ColumnName="ToStreet" />
+                <ScalarProperty Name="FromHour" ColumnName="FromHour" />
+                <ScalarProperty Name="ToHour" ColumnName="ToHour" />
+                <ScalarProperty Name="AcceptableDistance" ColumnName="AcceptableDistance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DriverModelStoreContainer" CdmEntityContainer="DriverEntities1">
+    <EntitySetMapping Name="CarDictionaries">
+      <EntityTypeMapping TypeName="DriverModel.CarDictionary">
+        <MappingFragment StoreEntitySet="CarDictionary">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CarType" ColumnName="CarType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="DriverModel.Car">
+        <MappingFragment StoreEntitySet="Cars">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
+          <ScalarProperty Name="IdCarTypeDictionary" ColumnName="IdCarTypeDictionary" />
+          <ScalarProperty Name="IdColour" ColumnName="IdColour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarsUsers">
+      <EntityTypeMapping TypeName="DriverModel.CarsUser">
+        <MappingFragment StoreEntitySet="CarsUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+          <ScalarProperty Name="IdCars" ColumnName="IdCars" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarTypeDictionaries">
+      <EntityTypeMapping TypeName="DriverModel.CarTypeDictionary">
+        <MappingFragment StoreEntitySet="CarTypeDictionary">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdCarDictionary" ColumnName="IdCarDictionary" />
+          <ScalarProperty Name="CarType" ColumnName="CarType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="DriverModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colours">
+      <EntityTypeMapping TypeName="DriverModel.Colour">
+        <MappingFragment StoreEntitySet="Colours">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Friends">
+      <EntityTypeMapping TypeName="DriverModel.Friend">
+        <MappingFragment StoreEntitySet="Friends">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdUserFriend" ColumnName="IdUserFriend" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DriverModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IdUserType" ColumnName="IdUserType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="DriverModel.UserType">
+        <MappingFragment StoreEntitySet="UserTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserType1" ColumnName="UserType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkTrips">
+      <EntityTypeMapping TypeName="DriverModel.WorkTrip">
+        <MappingFragment StoreEntitySet="WorkTrip">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdCityFrom" ColumnName="IdCityFrom" />
+          <ScalarProperty Name="IdCityTo" ColumnName="IdCityTo" />
+          <ScalarProperty Name="FromLongitude" ColumnName="FromLongitude" />
+          <ScalarProperty Name="FromLatitude" ColumnName="FromLatitude" />
+          <ScalarProperty Name="FromStreet" ColumnName="FromStreet" />
+          <ScalarProperty Name="ToLongitude" ColumnName="ToLongitude" />
+          <ScalarProperty Name="ToLatitude" ColumnName="ToLatitude" />
+          <ScalarProperty Name="ToStreet" ColumnName="ToStreet" />
+          <ScalarProperty Name="FromHour" ColumnName="FromHour" />
+          <ScalarProperty Name="ToHour" ColumnName="ToHour" />
+          <ScalarProperty Name="AcceptableDistance" ColumnName="AcceptableDistance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

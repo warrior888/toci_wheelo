@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1deac130be83487f9a903caa22a43b03" Name="Diagram1">
+        <EntityTypeShape EntityType="DriverModel.CarDictionary" Width="1.5" PointX="1.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverModel.Car" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverModel.CarsUser" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverModel.CarTypeDictionary" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverModel.City" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverModel.Colour" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverModel.Friend" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverModel.User" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverModel.UserType" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverModel.WorkTrip" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="DriverModel.FK__CarTypeDi__IdCar__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="DriverModel.FK__Cars__IdCarTypeD__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="DriverModel.FK__Cars__IdColour__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="DriverModel.FK__CarsUsers__IdCar__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="DriverModel.FK__CarsUsers__IdUse__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="DriverModel.FK__WorkTrip__IdCity__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="DriverModel.FK__WorkTrip__IdCity__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="DriverModel.FK__Friends__IdUser__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="DriverModel.FK__Friends__IdUserF__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="DriverModel.FK__Users__IdUserTyp__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="DriverModel.FK__WorkTrip__IdUser__5EBF139D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
