@@ -44,5 +44,8 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
         public virtual DbSet<UsersReferences> UsersReferences { get; set; }
         public virtual DbSet<UserTypes> UserTypes { get; set; }
         public virtual DbSet<WorkTrip> WorkTrip { get; set; }
+        public virtual DbSet<AssociatedGroups> AssociatedGroups { get; set; }
+        public virtual DbSet<AssociatedGroupUsers> AssociatedGroupUsers { get; set; }
+        public virtual DbSet<AssociatedGroupWall> AssociatedGroupWall { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using Toci.Driver.Dal.Invitation.Interfaces;
 
@@ -9,10 +10,9 @@ namespace Toci.Driver.Dal.Invitation
     {
         DriverEntities DriverEntities = new DriverEntities();
 
-        public override List<TModel> Select(Expression<Func<TModel, bool>> @where)
+        public override IQueryable<TModel> Select(Expression<Func<TModel, bool>> @where)
         {
-            //DriverEntities.Set<TModel>().s
-            return null;
+            return DriverEntities.Set<TModel>().Where(where);
         }
     }
 }

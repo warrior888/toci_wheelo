@@ -26,6 +26,8 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
             this.UsersReferences = new HashSet<UsersReferences>();
             this.UsersReferences1 = new HashSet<UsersReferences>();
             this.WorkTrip = new HashSet<WorkTrip>();
+            this.AssociatedGroupUsers = new HashSet<AssociatedGroupUsers>();
+            this.AssociatedGroupWall = new HashSet<AssociatedGroupWall>();
         }
     
         public long Id { get; set; }
@@ -56,5 +58,9 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
         public virtual ICollection<UsersReferences> UsersReferences1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WorkTrip> WorkTrip { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AssociatedGroupUsers> AssociatedGroupUsers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AssociatedGroupWall> AssociatedGroupWall { get; set; }
     }
 }

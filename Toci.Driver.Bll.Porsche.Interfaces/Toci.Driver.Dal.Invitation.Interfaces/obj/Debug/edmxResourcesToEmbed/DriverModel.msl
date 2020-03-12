@@ -191,5 +191,33 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AssociatedGroups">
+      <EntityTypeMapping TypeName="DriverModel.AssociatedGroups">
+        <MappingFragment StoreEntitySet="AssociatedGroups">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssociatedGroupUsers">
+      <EntityTypeMapping TypeName="DriverModel.AssociatedGroupUsers">
+        <MappingFragment StoreEntitySet="AssociatedGroupUsers">
+          <ScalarProperty Name="IdAssociatedGroups" ColumnName="IdAssociatedGroups" />
+          <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssociatedGroupWall">
+      <EntityTypeMapping TypeName="DriverModel.AssociatedGroupWall">
+        <MappingFragment StoreEntitySet="AssociatedGroupWall">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+          <ScalarProperty Name="IdAssociatedGroups" ColumnName="IdAssociatedGroups" />
+          <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

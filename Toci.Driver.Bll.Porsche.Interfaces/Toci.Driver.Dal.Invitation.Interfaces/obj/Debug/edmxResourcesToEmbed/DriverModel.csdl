@@ -163,6 +163,8 @@
     <NavigationProperty Name="UsersReferences" Relationship="Self.FK__UsersRefe__IdUse__44CA3770" FromRole="Users" ToRole="UsersReferences" />
     <NavigationProperty Name="UsersReferences1" Relationship="Self.FK__UsersRefe__IdUse__45BE5BA9" FromRole="Users" ToRole="UsersReferences" />
     <NavigationProperty Name="WorkTrip" Relationship="Self.FK__WorkTrip__IdUser__31B762FC" FromRole="Users" ToRole="WorkTrip" />
+    <NavigationProperty Name="AssociatedGroupUsers" Relationship="DriverModel.FK__Associate__IdUse__4A8310C6" FromRole="Users" ToRole="AssociatedGroupUsers" />
+    <NavigationProperty Name="AssociatedGroupWall" Relationship="DriverModel.FK__Associate__IdUse__4E53A1AA" FromRole="Users" ToRole="AssociatedGroupWall" />
   </EntityType>
   <EntityType Name="UsersLocations">
     <Key>
@@ -623,5 +625,103 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="WorkTrip" EntitySet="WorkTrip" />
     </AssociationSet>
+    <EntitySet Name="AssociatedGroups" EntityType="DriverModel.AssociatedGroups" />
+    <EntitySet Name="AssociatedGroupUsers" EntityType="DriverModel.AssociatedGroupUsers" />
+    <EntitySet Name="AssociatedGroupWall" EntityType="DriverModel.AssociatedGroupWall" />
+    <AssociationSet Name="FK__Associate__IdAss__4B7734FF" Association="DriverModel.FK__Associate__IdAss__4B7734FF">
+      <End Role="AssociatedGroups" EntitySet="AssociatedGroups" />
+      <End Role="AssociatedGroupUsers" EntitySet="AssociatedGroupUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Associate__IdAss__4F47C5E3" Association="DriverModel.FK__Associate__IdAss__4F47C5E3">
+      <End Role="AssociatedGroups" EntitySet="AssociatedGroups" />
+      <End Role="AssociatedGroupWall" EntitySet="AssociatedGroupWall" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Associate__IdUse__4A8310C6" Association="DriverModel.FK__Associate__IdUse__4A8310C6">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="AssociatedGroupUsers" EntitySet="AssociatedGroupUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Associate__IdUse__4E53A1AA" Association="DriverModel.FK__Associate__IdUse__4E53A1AA">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="AssociatedGroupWall" EntitySet="AssociatedGroupWall" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="AssociatedGroups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AssociatedGroupUsers" Relationship="DriverModel.FK__Associate__IdAss__4B7734FF" FromRole="AssociatedGroups" ToRole="AssociatedGroupUsers" />
+    <NavigationProperty Name="AssociatedGroupWall" Relationship="DriverModel.FK__Associate__IdAss__4F47C5E3" FromRole="AssociatedGroups" ToRole="AssociatedGroupWall" />
+  </EntityType>
+  <EntityType Name="AssociatedGroupUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUsers" Type="Int64" />
+    <Property Name="IdAssociatedGroups" Type="Int64" />
+    <NavigationProperty Name="AssociatedGroups" Relationship="DriverModel.FK__Associate__IdAss__4B7734FF" FromRole="AssociatedGroupUsers" ToRole="AssociatedGroups" />
+    <NavigationProperty Name="Users" Relationship="DriverModel.FK__Associate__IdUse__4A8310C6" FromRole="AssociatedGroupUsers" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="AssociatedGroupWall">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUsers" Type="Int64" />
+    <Property Name="IdAssociatedGroups" Type="Int64" />
+    <Property Name="Post" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AssociatedGroups" Relationship="DriverModel.FK__Associate__IdAss__4F47C5E3" FromRole="AssociatedGroupWall" ToRole="AssociatedGroups" />
+    <NavigationProperty Name="Users" Relationship="DriverModel.FK__Associate__IdUse__4E53A1AA" FromRole="AssociatedGroupWall" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK__Associate__IdAss__4B7734FF">
+    <End Type="DriverModel.AssociatedGroups" Role="AssociatedGroups" Multiplicity="0..1" />
+    <End Type="DriverModel.AssociatedGroupUsers" Role="AssociatedGroupUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssociatedGroups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssociatedGroupUsers">
+        <PropertyRef Name="IdAssociatedGroups" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Associate__IdAss__4F47C5E3">
+    <End Type="DriverModel.AssociatedGroups" Role="AssociatedGroups" Multiplicity="0..1" />
+    <End Type="DriverModel.AssociatedGroupWall" Role="AssociatedGroupWall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssociatedGroups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssociatedGroupWall">
+        <PropertyRef Name="IdAssociatedGroups" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Associate__IdUse__4A8310C6">
+    <End Type="DriverModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="DriverModel.AssociatedGroupUsers" Role="AssociatedGroupUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssociatedGroupUsers">
+        <PropertyRef Name="IdUsers" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Associate__IdUse__4E53A1AA">
+    <End Type="DriverModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="DriverModel.AssociatedGroupWall" Role="AssociatedGroupWall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssociatedGroupWall">
+        <PropertyRef Name="IdUsers" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -1,0 +1,6 @@
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Common.Gatekeeper.Interfaces\bin\Debug\Toci.Driver.Common.Gatekeeper.Interfaces.dll
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Common.Gatekeeper.Interfaces\bin\Debug\Toci.Driver.Common.Gatekeeper.Interfaces.pdb
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Common.Gatekeeper.Interfaces\obj\Debug\Toci.Driver.Common.Gatekeeper.Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Common.Gatekeeper.Interfaces\obj\Debug\Toci.Driver.Common.Gatekeeper.Interfaces.dll
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Common.Gatekeeper.Interfaces\obj\Debug\Toci.Driver.Common.Gatekeeper.Interfaces.pdb
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Common.Gatekeeper.Interfaces\obj\Debug\Toci.Driver.Common.Gatekeeper.Interfaces.csprojAssemblyReference.cache

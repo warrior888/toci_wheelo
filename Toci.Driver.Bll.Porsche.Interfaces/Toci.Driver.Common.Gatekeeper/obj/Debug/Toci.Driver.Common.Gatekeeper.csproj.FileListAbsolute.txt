@@ -1,0 +1,9 @@
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Common.Gatekeeper\bin\Debug\Toci.Driver.Common.Gatekeeper.dll
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Common.Gatekeeper\bin\Debug\Toci.Driver.Common.Gatekeeper.pdb
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Common.Gatekeeper\bin\Debug\Toci.Driver.Common.Gatekeeper.Interfaces.dll
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Common.Gatekeeper\bin\Debug\Toci.Driver.Common.Gatekeeper.Interfaces.pdb
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Common.Gatekeeper\obj\Debug\Toci.Driver.Common.Gatekeeper.csprojAssemblyReference.cache
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Common.Gatekeeper\obj\Debug\Toci.Driver.Common.Gatekeeper.csproj.CoreCompileInputs.cache
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Common.Gatekeeper\obj\Debug\Toci.Driver.Common.Gatekeeper.csproj.CopyComplete
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Common.Gatekeeper\obj\Debug\Toci.Driver.Common.Gatekeeper.dll
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Common.Gatekeeper\obj\Debug\Toci.Driver.Common.Gatekeeper.pdb

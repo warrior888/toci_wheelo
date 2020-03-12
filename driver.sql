@@ -1,3 +1,6 @@
+drop table AssociatedGroupWall;
+drop table AssociatedGroupUsers;
+drop table AssociatedGroups;
 drop table UsersReferences;
 drop table TravelToWork;
 drop table GroupUsers;
@@ -30,6 +33,10 @@ create table Phrases
 	Id bigint identity primary key,
 	Phrase text
 );
+
+insert into Languages (name) values ('_polish');
+
+insert into Phrases (Phrase) values ('_unknown_database_error');
 
 create table Translations
 (
@@ -88,6 +95,8 @@ create table Users
 	Email text
 );
 
+insert into Users (UserName, password, phone, email) values ('warrior', 'beatka', '731282311', 'bzapart@gmail.com');
+
 create table CarsUsers
 (
 	Id bigint identity primary key,
@@ -113,6 +122,7 @@ create table UsersLocations
 	Latitude decimal,
 	Kind int
 );
+
 create table WorkTrip
 (
 	Id bigint identity primary key,
@@ -129,8 +139,6 @@ create table WorkTrip
 	ToHour decimal,
 	AcceptableDistance decimal
 );
-
-
 
 create table Friends
 (
@@ -167,6 +175,28 @@ create table UsersReferences
 	IdUsersReferences bigint references Users(Id),
 	Rank decimal,
 	Opinion text
+);
+
+create table AssociatedGroups
+(
+	Id bigint identity primary key,
+	Name text
+);
+
+create table AssociatedGroupUsers
+(
+	Id bigint identity primary key,
+	IdUsers bigint references Users(Id),
+	IdAssociatedGroups bigint references AssociatedGroups(Id)
+);
+
+create table AssociatedGroupWall
+(
+	Id bigint identity primary key,
+	IdUsers bigint references Users(Id),
+	IdAssociatedGroups bigint references AssociatedGroups(Id),
+	Post text,
+	Date datetime default current_timestamp
 );
 
 create table Wall

@@ -20,3 +20,7 @@ C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.
 C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Dal\obj\Debug\Toci.Driver.Dal.Invitation.csproj.CopyComplete
 C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Dal\obj\Debug\Toci.Driver.Dal.Invitation.dll
 C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Dal\obj\Debug\Toci.Driver.Dal.Invitation.pdb
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Dal\bin\Debug\Toci.Driver.Common.Gatekeeper.dll
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Dal\bin\Debug\Toci.Driver.Common.Gatekeeper.Interfaces.dll
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Dal\bin\Debug\Toci.Driver.Common.Gatekeeper.Interfaces.pdb
+C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Dal\bin\Debug\Toci.Driver.Common.Gatekeeper.pdb

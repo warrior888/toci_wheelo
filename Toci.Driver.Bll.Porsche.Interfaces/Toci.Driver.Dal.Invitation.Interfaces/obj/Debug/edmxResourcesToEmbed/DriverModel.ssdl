@@ -1,5 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DriverModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AssociatedGroups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="text" />
+  </EntityType>
+  <EntityType Name="AssociatedGroupUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUsers" Type="bigint" />
+    <Property Name="IdAssociatedGroups" Type="bigint" />
+  </EntityType>
+  <EntityType Name="AssociatedGroupWall">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUsers" Type="bigint" />
+    <Property Name="IdAssociatedGroups" Type="bigint" />
+    <Property Name="Post" Type="text" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
   <EntityType Name="CarDictionary">
     <Key>
       <PropertyRef Name="Id" />
@@ -171,6 +196,54 @@
     <Property Name="ToHour" Type="decimal" Precision="18" Scale="0" />
     <Property Name="AcceptableDistance" Type="decimal" Precision="18" Scale="0" />
   </EntityType>
+  <Association Name="FK__Associate__IdAss__4B7734FF">
+    <End Role="AssociatedGroups" Type="Self.AssociatedGroups" Multiplicity="0..1" />
+    <End Role="AssociatedGroupUsers" Type="Self.AssociatedGroupUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssociatedGroups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssociatedGroupUsers">
+        <PropertyRef Name="IdAssociatedGroups" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Associate__IdAss__4F47C5E3">
+    <End Role="AssociatedGroups" Type="Self.AssociatedGroups" Multiplicity="0..1" />
+    <End Role="AssociatedGroupWall" Type="Self.AssociatedGroupWall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssociatedGroups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssociatedGroupWall">
+        <PropertyRef Name="IdAssociatedGroups" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Associate__IdUse__4A8310C6">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="AssociatedGroupUsers" Type="Self.AssociatedGroupUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssociatedGroupUsers">
+        <PropertyRef Name="IdUsers" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Associate__IdUse__4E53A1AA">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="AssociatedGroupWall" Type="Self.AssociatedGroupWall" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssociatedGroupWall">
+        <PropertyRef Name="IdUsers" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Cars__IdCarTypeD__1DB06A4F">
     <End Role="CarTypeDictionary" Type="Self.CarTypeDictionary" Multiplicity="0..1" />
     <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
@@ -460,6 +533,9 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="DriverModelStoreContainer">
+    <EntitySet Name="AssociatedGroups" EntityType="Self.AssociatedGroups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AssociatedGroupUsers" EntityType="Self.AssociatedGroupUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AssociatedGroupWall" EntityType="Self.AssociatedGroupWall" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CarDictionary" EntityType="Self.CarDictionary" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CarsPictures" EntityType="Self.CarsPictures" Schema="dbo" store:Type="Tables" />
@@ -479,6 +555,22 @@
     <EntitySet Name="UsersReferences" EntityType="Self.UsersReferences" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WorkTrip" EntityType="Self.WorkTrip" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Associate__IdAss__4B7734FF" Association="Self.FK__Associate__IdAss__4B7734FF">
+      <End Role="AssociatedGroups" EntitySet="AssociatedGroups" />
+      <End Role="AssociatedGroupUsers" EntitySet="AssociatedGroupUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Associate__IdAss__4F47C5E3" Association="Self.FK__Associate__IdAss__4F47C5E3">
+      <End Role="AssociatedGroups" EntitySet="AssociatedGroups" />
+      <End Role="AssociatedGroupWall" EntitySet="AssociatedGroupWall" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Associate__IdUse__4A8310C6" Association="Self.FK__Associate__IdUse__4A8310C6">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="AssociatedGroupUsers" EntitySet="AssociatedGroupUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Associate__IdUse__4E53A1AA" Association="Self.FK__Associate__IdUse__4E53A1AA">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="AssociatedGroupWall" EntitySet="AssociatedGroupWall" />
+    </AssociationSet>
     <AssociationSet Name="FK__Cars__IdCarTypeD__1DB06A4F" Association="Self.FK__Cars__IdCarTypeD__1DB06A4F">
       <End Role="CarTypeDictionary" EntitySet="CarTypeDictionary" />
       <End Role="Cars" EntitySet="Cars" />
