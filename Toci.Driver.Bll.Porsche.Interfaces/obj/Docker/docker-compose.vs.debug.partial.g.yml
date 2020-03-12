@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  toci.driver.ui.api:
+    image: tocidriveruiapi:dev
+    build:
+      args:
+        source: obj/Docker/empty/
+    volumes:
+      - C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Ui.Api:C:\inetpub\wwwroot
+      - C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\Remote Debugger:C:\remote_debugger:ro
+    entrypoint: cmd /c "start /B C:\\ServiceMonitor.exe w3svc & C:\\remote_debugger\\x64\\msvsmon.exe /noauth /anyuser /silent /nostatus /noclrwarn /nosecuritywarn /nofirewallwarn /nowowwarn /timeout:2147483646"
+

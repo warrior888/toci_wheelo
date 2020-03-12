@@ -1,0 +1,13 @@
+networks:
+  default:
+    external:
+      name: nat
+services:
+  toci.driver.ui.api:
+    build:
+      context: C:\Users\bzapa\source\repos\toci_wheelo\Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Ui.Api
+      dockerfile: Dockerfile
+    image: tocidriveruiapi
+    ports:
+    - target: 80
+version: '3.4'

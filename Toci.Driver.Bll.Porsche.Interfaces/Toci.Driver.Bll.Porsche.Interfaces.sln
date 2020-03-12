@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29613.14
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.960
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Driver.Bll.Porsche.Interfaces", "Toci.Driver.Bll.Porsche.Interfaces\Toci.Driver.Bll.Porsche.Interfaces.csproj", "{BE933DAF-27F8-4129-BB90-12633A667271}"
 EndProject
@@ -10,6 +10,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Driver.Dal.Invitation.Interfaces", "Toci.Driver.Dal.Invitation.Interfaces\Toci.Driver.Dal.Invitation.Interfaces.csproj", "{6307169E-918C-43C4-802B-7F035296C0AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Driver.Dal.Invitation", "Toci.Driver.Dal\Toci.Driver.Dal.Invitation.csproj", "{12DB987C-2E2D-4EFF-9A6B-F59E6C5E0B50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Driver.Ui.Api.Interfaces", "Toci.Driver.Ui.Api.Interfaces\Toci.Driver.Ui.Api.Interfaces.csproj", "{F1D08ED3-1BBB-42B2-A1AB-361450BA0ED5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Driver.Ui.Api", "Toci.Driver.Ui.Api\Toci.Driver.Ui.Api.csproj", "{CA354D29-D436-44C8-8732-54A93D43DD43}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F48F9E9D-679E-4A18-B310-965FEE22DB92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{12DB987C-2E2D-4EFF-9A6B-F59E6C5E0B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12DB987C-2E2D-4EFF-9A6B-F59E6C5E0B50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12DB987C-2E2D-4EFF-9A6B-F59E6C5E0B50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D08ED3-1BBB-42B2-A1AB-361450BA0ED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D08ED3-1BBB-42B2-A1AB-361450BA0ED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D08ED3-1BBB-42B2-A1AB-361450BA0ED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D08ED3-1BBB-42B2-A1AB-361450BA0ED5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA354D29-D436-44C8-8732-54A93D43DD43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA354D29-D436-44C8-8732-54A93D43DD43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA354D29-D436-44C8-8732-54A93D43DD43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA354D29-D436-44C8-8732-54A93D43DD43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F48F9E9D-679E-4A18-B310-965FEE22DB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F48F9E9D-679E-4A18-B310-965FEE22DB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F48F9E9D-679E-4A18-B310-965FEE22DB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F48F9E9D-679E-4A18-B310-965FEE22DB92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
