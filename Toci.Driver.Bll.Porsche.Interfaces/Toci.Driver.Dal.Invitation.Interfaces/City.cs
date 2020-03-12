@@ -17,16 +17,20 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public City()
         {
-            this.WorkTrips = new HashSet<WorkTrip>();
-            this.WorkTrips1 = new HashSet<WorkTrip>();
+            this.UsersLocations = new HashSet<UsersLocations>();
+            this.WorkTrip = new HashSet<WorkTrip>();
+            this.WorkTrip1 = new HashSet<WorkTrip>();
         }
     
         public long Id { get; set; }
         public string Name { get; set; }
+        public string PostCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WorkTrip> WorkTrips { get; set; }
+        public virtual ICollection<UsersLocations> UsersLocations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WorkTrip> WorkTrips1 { get; set; }
+        public virtual ICollection<WorkTrip> WorkTrip { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WorkTrip> WorkTrip1 { get; set; }
     }
 }

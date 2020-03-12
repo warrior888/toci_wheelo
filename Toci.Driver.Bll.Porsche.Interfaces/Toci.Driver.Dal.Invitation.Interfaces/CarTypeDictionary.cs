@@ -17,7 +17,7 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CarTypeDictionary()
         {
-            this.Cars = new HashSet<Car>();
+            this.Cars = new HashSet<Cars>();
         }
     
         public long Id { get; set; }
@@ -26,6 +26,6 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
     
         public virtual CarDictionary CarDictionary { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Car> Cars { get; set; }
+        public virtual ICollection<Cars> Cars { get; set; }
     }
 }

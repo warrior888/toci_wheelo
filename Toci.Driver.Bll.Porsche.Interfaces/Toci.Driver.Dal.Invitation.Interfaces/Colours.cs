@@ -12,18 +12,18 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
     using System;
     using System.Collections.Generic;
     
-    public partial class UserType
+    public partial class Colours
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserType()
+        public Colours()
         {
-            this.Users = new HashSet<User>();
+            this.Cars = new HashSet<Cars>();
         }
     
         public long Id { get; set; }
-        public string UserType1 { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Cars> Cars { get; set; }
     }
 }

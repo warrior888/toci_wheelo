@@ -30,6 +30,6 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
     
         public virtual City City { get; set; }
         public virtual City City1 { get; set; }
-        public virtual User User { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

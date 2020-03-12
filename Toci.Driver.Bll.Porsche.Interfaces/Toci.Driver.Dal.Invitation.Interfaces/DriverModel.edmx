@@ -20,6 +20,15 @@
           <Property Name="LicensePlate" Type="text" />
           <Property Name="IdCarTypeDictionary" Type="bigint" />
           <Property Name="IdColour" Type="bigint" />
+          <Property Name="Seats" Type="int" />
+        </EntityType>
+        <EntityType Name="CarsPictures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCars" Type="bigint" />
+          <Property Name="Picture" Type="text" />
         </EntityType>
         <EntityType Name="CarsUsers">
           <Key>
@@ -28,6 +37,7 @@
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdUsers" Type="bigint" />
           <Property Name="IdCars" Type="bigint" />
+          <Property Name="MaxSeats" Type="int" />
         </EntityType>
         <EntityType Name="CarTypeDictionary">
           <Key>
@@ -43,6 +53,7 @@
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="text" />
+          <Property Name="PostCode" Type="text" />
         </EntityType>
         <EntityType Name="Colours">
           <Key>
@@ -59,14 +70,86 @@
           <Property Name="IdUser" Type="bigint" />
           <Property Name="IdUserFriend" Type="bigint" />
         </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="text" />
+        </EntityType>
+        <EntityType Name="GroupUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGroups" Type="bigint" />
+          <Property Name="IdUser" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="text" />
+        </EntityType>
+        <EntityType Name="Phrases">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Phrase" Type="text" />
+        </EntityType>
+        <EntityType Name="Translations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdLanguages" Type="bigint" />
+          <Property Name="IdPhrases" Type="bigint" />
+          <Property Name="Translation" Type="text" />
+        </EntityType>
+        <EntityType Name="TravelToWork">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdGroups" Type="bigint" />
+          <Property Name="IdUsers" Type="bigint" />
+          <Property Name="IdCars" Type="bigint" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdLanguages" Type="bigint" />
           <Property Name="UserName" Type="text" />
           <Property Name="Password" Type="text" />
           <Property Name="IdUserType" Type="bigint" />
+          <Property Name="Phone" Type="text" />
+          <Property Name="Email" Type="text" />
+        </EntityType>
+        <EntityType Name="UsersLocations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsers" Type="bigint" />
+          <Property Name="IdCity" Type="bigint" />
+          <Property Name="Street" Type="text" />
+          <Property Name="Longitude" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Latitude" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Kind" Type="int" />
+        </EntityType>
+        <EntityType Name="UsersReferences">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsers" Type="bigint" />
+          <Property Name="IdUsersReferences" Type="bigint" />
+          <Property Name="Rank" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Opinion" Type="text" />
         </EntityType>
         <EntityType Name="UserTypes">
           <Key>
@@ -93,7 +176,7 @@
           <Property Name="ToHour" Type="decimal" Precision="18" Scale="0" />
           <Property Name="AcceptableDistance" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
-        <Association Name="FK__Cars__IdCarTypeD__52593CB8">
+        <Association Name="FK__Cars__IdCarTypeD__1DB06A4F">
           <End Role="CarTypeDictionary" Type="Self.CarTypeDictionary" Multiplicity="0..1" />
           <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
           <ReferentialConstraint>
@@ -105,7 +188,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Cars__IdColour__534D60F1">
+        <Association Name="FK__Cars__IdColour__1EA48E88">
           <End Role="Colours" Type="Self.Colours" Multiplicity="0..1" />
           <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
           <ReferentialConstraint>
@@ -117,7 +200,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CarsUsers__IdCar__59FA5E80">
+        <Association Name="FK__CarsPictu__IdCar__2180FB33">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="0..1" />
+          <End Role="CarsPictures" Type="Self.CarsPictures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarsPictures">
+              <PropertyRef Name="IdCars" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CarsUsers__IdCar__29221CFB">
           <End Role="Cars" Type="Self.Cars" Multiplicity="0..1" />
           <End Role="CarsUsers" Type="Self.CarsUsers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -129,7 +224,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CarsUsers__IdUse__59063A47">
+        <Association Name="FK__CarsUsers__IdUse__282DF8C2">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="CarsUsers" Type="Self.CarsUsers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -141,7 +236,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CarTypeDi__IdCar__4D94879B">
+        <Association Name="FK__CarTypeDi__IdCar__18EBB532">
           <End Role="CarDictionary" Type="Self.CarDictionary" Multiplicity="0..1" />
           <End Role="CarTypeDictionary" Type="Self.CarTypeDictionary" Multiplicity="*" />
           <ReferentialConstraint>
@@ -153,7 +248,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Friends__IdUser__6383C8BA">
+        <Association Name="FK__Friends__IdUser__367C1819">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Friends" Type="Self.Friends" Multiplicity="*" />
           <ReferentialConstraint>
@@ -165,7 +260,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Friends__IdUserF__6477ECF3">
+        <Association Name="FK__Friends__IdUserF__37703C52">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Friends" Type="Self.Friends" Multiplicity="*" />
           <ReferentialConstraint>
@@ -177,7 +272,103 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Users__IdUserTyp__5629CD9C">
+        <Association Name="FK__GroupUser__IdGro__3C34F16F">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="GroupUsers" Type="Self.GroupUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupUsers">
+              <PropertyRef Name="IdGroups" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupUser__IdUse__3D2915A8">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="GroupUsers" Type="Self.GroupUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupUsers">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Translati__IdLan__114A936A">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="Translations" Type="Self.Translations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Translations">
+              <PropertyRef Name="IdLanguages" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Translati__IdPhr__123EB7A3">
+          <End Role="Phrases" Type="Self.Phrases" Multiplicity="0..1" />
+          <End Role="Translations" Type="Self.Translations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phrases">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Translations">
+              <PropertyRef Name="IdPhrases" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TravelToW__IdCar__41EDCAC5">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="0..1" />
+          <End Role="TravelToWork" Type="Self.TravelToWork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TravelToWork">
+              <PropertyRef Name="IdCars" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TravelToW__IdGro__40058253">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="TravelToWork" Type="Self.TravelToWork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TravelToWork">
+              <PropertyRef Name="IdGroups" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TravelToW__IdUse__40F9A68C">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="TravelToWork" Type="Self.TravelToWork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TravelToWork">
+              <PropertyRef Name="IdUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdLanguag__245D67DE">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdLanguages" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdUserTyp__25518C17">
           <End Role="UserTypes" Type="Self.UserTypes" Multiplicity="0..1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
@@ -189,7 +380,55 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__WorkTrip__IdCity__5FB337D6">
+        <Association Name="FK__UsersLoca__IdCit__2EDAF651">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="UsersLocations" Type="Self.UsersLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersLocations">
+              <PropertyRef Name="IdCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersLoca__IdUse__2DE6D218">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UsersLocations" Type="Self.UsersLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersLocations">
+              <PropertyRef Name="IdUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersRefe__IdUse__44CA3770">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UsersReferences" Type="Self.UsersReferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersReferences">
+              <PropertyRef Name="IdUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersRefe__IdUse__45BE5BA9">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UsersReferences" Type="Self.UsersReferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersReferences">
+              <PropertyRef Name="IdUsersReferences" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WorkTrip__IdCity__32AB8735">
           <End Role="City" Type="Self.City" Multiplicity="0..1" />
           <End Role="WorkTrip" Type="Self.WorkTrip" Multiplicity="*" />
           <ReferentialConstraint>
@@ -201,7 +440,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__WorkTrip__IdCity__60A75C0F">
+        <Association Name="FK__WorkTrip__IdCity__339FAB6E">
           <End Role="City" Type="Self.City" Multiplicity="0..1" />
           <End Role="WorkTrip" Type="Self.WorkTrip" Multiplicity="*" />
           <ReferentialConstraint>
@@ -213,7 +452,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__WorkTrip__IdUser__5EBF139D">
+        <Association Name="FK__WorkTrip__IdUser__31B762FC">
           <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="WorkTrip" Type="Self.WorkTrip" Multiplicity="*" />
           <ReferentialConstraint>
@@ -228,55 +467,116 @@
         <EntityContainer Name="DriverModelStoreContainer">
           <EntitySet Name="CarDictionary" EntityType="Self.CarDictionary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarsPictures" EntityType="Self.CarsPictures" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CarsUsers" EntityType="Self.CarsUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CarTypeDictionary" EntityType="Self.CarTypeDictionary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Colours" EntityType="Self.Colours" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Friends" EntityType="Self.Friends" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupUsers" EntityType="Self.GroupUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phrases" EntityType="Self.Phrases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Translations" EntityType="Self.Translations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TravelToWork" EntityType="Self.TravelToWork" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersLocations" EntityType="Self.UsersLocations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersReferences" EntityType="Self.UsersReferences" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WorkTrip" EntityType="Self.WorkTrip" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Cars__IdCarTypeD__52593CB8" Association="Self.FK__Cars__IdCarTypeD__52593CB8">
+          <AssociationSet Name="FK__Cars__IdCarTypeD__1DB06A4F" Association="Self.FK__Cars__IdCarTypeD__1DB06A4F">
             <End Role="CarTypeDictionary" EntitySet="CarTypeDictionary" />
             <End Role="Cars" EntitySet="Cars" />
           </AssociationSet>
-          <AssociationSet Name="FK__Cars__IdColour__534D60F1" Association="Self.FK__Cars__IdColour__534D60F1">
+          <AssociationSet Name="FK__Cars__IdColour__1EA48E88" Association="Self.FK__Cars__IdColour__1EA48E88">
             <End Role="Colours" EntitySet="Colours" />
             <End Role="Cars" EntitySet="Cars" />
           </AssociationSet>
-          <AssociationSet Name="FK__CarsUsers__IdCar__59FA5E80" Association="Self.FK__CarsUsers__IdCar__59FA5E80">
+          <AssociationSet Name="FK__CarsPictu__IdCar__2180FB33" Association="Self.FK__CarsPictu__IdCar__2180FB33">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="CarsPictures" EntitySet="CarsPictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CarsUsers__IdCar__29221CFB" Association="Self.FK__CarsUsers__IdCar__29221CFB">
             <End Role="Cars" EntitySet="Cars" />
             <End Role="CarsUsers" EntitySet="CarsUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__CarsUsers__IdUse__59063A47" Association="Self.FK__CarsUsers__IdUse__59063A47">
+          <AssociationSet Name="FK__CarsUsers__IdUse__282DF8C2" Association="Self.FK__CarsUsers__IdUse__282DF8C2">
             <End Role="Users" EntitySet="Users" />
             <End Role="CarsUsers" EntitySet="CarsUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__CarTypeDi__IdCar__4D94879B" Association="Self.FK__CarTypeDi__IdCar__4D94879B">
+          <AssociationSet Name="FK__CarTypeDi__IdCar__18EBB532" Association="Self.FK__CarTypeDi__IdCar__18EBB532">
             <End Role="CarDictionary" EntitySet="CarDictionary" />
             <End Role="CarTypeDictionary" EntitySet="CarTypeDictionary" />
           </AssociationSet>
-          <AssociationSet Name="FK__Friends__IdUser__6383C8BA" Association="Self.FK__Friends__IdUser__6383C8BA">
+          <AssociationSet Name="FK__Friends__IdUser__367C1819" Association="Self.FK__Friends__IdUser__367C1819">
             <End Role="Users" EntitySet="Users" />
             <End Role="Friends" EntitySet="Friends" />
           </AssociationSet>
-          <AssociationSet Name="FK__Friends__IdUserF__6477ECF3" Association="Self.FK__Friends__IdUserF__6477ECF3">
+          <AssociationSet Name="FK__Friends__IdUserF__37703C52" Association="Self.FK__Friends__IdUserF__37703C52">
             <End Role="Users" EntitySet="Users" />
             <End Role="Friends" EntitySet="Friends" />
           </AssociationSet>
-          <AssociationSet Name="FK__Users__IdUserTyp__5629CD9C" Association="Self.FK__Users__IdUserTyp__5629CD9C">
+          <AssociationSet Name="FK__GroupUser__IdGro__3C34F16F" Association="Self.FK__GroupUser__IdGro__3C34F16F">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupUsers" EntitySet="GroupUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupUser__IdUse__3D2915A8" Association="Self.FK__GroupUser__IdUse__3D2915A8">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="GroupUsers" EntitySet="GroupUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Translati__IdLan__114A936A" Association="Self.FK__Translati__IdLan__114A936A">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Translations" EntitySet="Translations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Translati__IdPhr__123EB7A3" Association="Self.FK__Translati__IdPhr__123EB7A3">
+            <End Role="Phrases" EntitySet="Phrases" />
+            <End Role="Translations" EntitySet="Translations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TravelToW__IdCar__41EDCAC5" Association="Self.FK__TravelToW__IdCar__41EDCAC5">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="TravelToWork" EntitySet="TravelToWork" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TravelToW__IdGro__40058253" Association="Self.FK__TravelToW__IdGro__40058253">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="TravelToWork" EntitySet="TravelToWork" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TravelToW__IdUse__40F9A68C" Association="Self.FK__TravelToW__IdUse__40F9A68C">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TravelToWork" EntitySet="TravelToWork" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdLanguag__245D67DE" Association="Self.FK__Users__IdLanguag__245D67DE">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdUserTyp__25518C17" Association="Self.FK__Users__IdUserTyp__25518C17">
             <End Role="UserTypes" EntitySet="UserTypes" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__WorkTrip__IdCity__5FB337D6" Association="Self.FK__WorkTrip__IdCity__5FB337D6">
+          <AssociationSet Name="FK__UsersLoca__IdCit__2EDAF651" Association="Self.FK__UsersLoca__IdCit__2EDAF651">
+            <End Role="City" EntitySet="City" />
+            <End Role="UsersLocations" EntitySet="UsersLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersLoca__IdUse__2DE6D218" Association="Self.FK__UsersLoca__IdUse__2DE6D218">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersLocations" EntitySet="UsersLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersRefe__IdUse__44CA3770" Association="Self.FK__UsersRefe__IdUse__44CA3770">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersReferences" EntitySet="UsersReferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersRefe__IdUse__45BE5BA9" Association="Self.FK__UsersRefe__IdUse__45BE5BA9">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersReferences" EntitySet="UsersReferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WorkTrip__IdCity__32AB8735" Association="Self.FK__WorkTrip__IdCity__32AB8735">
             <End Role="City" EntitySet="City" />
             <End Role="WorkTrip" EntitySet="WorkTrip" />
           </AssociationSet>
-          <AssociationSet Name="FK__WorkTrip__IdCity__60A75C0F" Association="Self.FK__WorkTrip__IdCity__60A75C0F">
+          <AssociationSet Name="FK__WorkTrip__IdCity__339FAB6E" Association="Self.FK__WorkTrip__IdCity__339FAB6E">
             <End Role="City" EntitySet="City" />
             <End Role="WorkTrip" EntitySet="WorkTrip" />
           </AssociationSet>
-          <AssociationSet Name="FK__WorkTrip__IdUser__5EBF139D" Association="Self.FK__WorkTrip__IdUser__5EBF139D">
+          <AssociationSet Name="FK__WorkTrip__IdUser__31B762FC" Association="Self.FK__WorkTrip__IdUser__31B762FC">
             <End Role="Users" EntitySet="Users" />
             <End Role="WorkTrip" EntitySet="WorkTrip" />
           </AssociationSet>
@@ -292,9 +592,9 @@
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CarType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CarTypeDictionaries" Relationship="Self.FK__CarTypeDi__IdCar__4D94879B" FromRole="CarDictionary" ToRole="CarTypeDictionary" />
+          <NavigationProperty Name="CarTypeDictionary" Relationship="Self.FK__CarTypeDi__IdCar__18EBB532" FromRole="CarDictionary" ToRole="CarTypeDictionary" />
         </EntityType>
-        <EntityType Name="Car">
+        <EntityType Name="Cars">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -302,19 +602,32 @@
           <Property Name="LicensePlate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IdCarTypeDictionary" Type="Int64" />
           <Property Name="IdColour" Type="Int64" />
-          <NavigationProperty Name="CarTypeDictionary" Relationship="Self.FK__Cars__IdCarTypeD__52593CB8" FromRole="Cars" ToRole="CarTypeDictionary" />
-          <NavigationProperty Name="Colour" Relationship="Self.FK__Cars__IdColour__534D60F1" FromRole="Cars" ToRole="Colours" />
-          <NavigationProperty Name="CarsUsers" Relationship="Self.FK__CarsUsers__IdCar__59FA5E80" FromRole="Cars" ToRole="CarsUsers" />
+          <Property Name="Seats" Type="Int32" />
+          <NavigationProperty Name="CarTypeDictionary" Relationship="Self.FK__Cars__IdCarTypeD__1DB06A4F" FromRole="Cars" ToRole="CarTypeDictionary" />
+          <NavigationProperty Name="Colours" Relationship="Self.FK__Cars__IdColour__1EA48E88" FromRole="Cars" ToRole="Colours" />
+          <NavigationProperty Name="CarsPictures" Relationship="Self.FK__CarsPictu__IdCar__2180FB33" FromRole="Cars" ToRole="CarsPictures" />
+          <NavigationProperty Name="CarsUsers" Relationship="Self.FK__CarsUsers__IdCar__29221CFB" FromRole="Cars" ToRole="CarsUsers" />
+          <NavigationProperty Name="TravelToWork" Relationship="Self.FK__TravelToW__IdCar__41EDCAC5" FromRole="Cars" ToRole="TravelToWork" />
         </EntityType>
-        <EntityType Name="CarsUser">
+        <EntityType Name="CarsPictures">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCars" Type="Int64" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK__CarsPictu__IdCar__2180FB33" FromRole="CarsPictures" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="CarsUsers">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUsers" Type="Int64" />
           <Property Name="IdCars" Type="Int64" />
-          <NavigationProperty Name="Car" Relationship="Self.FK__CarsUsers__IdCar__59FA5E80" FromRole="CarsUsers" ToRole="Cars" />
-          <NavigationProperty Name="User" Relationship="Self.FK__CarsUsers__IdUse__59063A47" FromRole="CarsUsers" ToRole="Users" />
+          <Property Name="MaxSeats" Type="Int32" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK__CarsUsers__IdCar__29221CFB" FromRole="CarsUsers" ToRole="Cars" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__CarsUsers__IdUse__282DF8C2" FromRole="CarsUsers" ToRole="Users" />
         </EntityType>
         <EntityType Name="CarTypeDictionary">
           <Key>
@@ -323,8 +636,8 @@
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdCarDictionary" Type="Int64" />
           <Property Name="CarType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CarDictionary" Relationship="Self.FK__CarTypeDi__IdCar__4D94879B" FromRole="CarTypeDictionary" ToRole="CarDictionary" />
-          <NavigationProperty Name="Cars" Relationship="Self.FK__Cars__IdCarTypeD__52593CB8" FromRole="CarTypeDictionary" ToRole="Cars" />
+          <NavigationProperty Name="CarDictionary" Relationship="Self.FK__CarTypeDi__IdCar__18EBB532" FromRole="CarTypeDictionary" ToRole="CarDictionary" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK__Cars__IdCarTypeD__1DB06A4F" FromRole="CarTypeDictionary" ToRole="Cars" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -332,48 +645,144 @@
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="WorkTrips" Relationship="Self.FK__WorkTrip__IdCity__5FB337D6" FromRole="City" ToRole="WorkTrip" />
-          <NavigationProperty Name="WorkTrips1" Relationship="Self.FK__WorkTrip__IdCity__60A75C0F" FromRole="City" ToRole="WorkTrip" />
+          <Property Name="PostCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UsersLocations" Relationship="Self.FK__UsersLoca__IdCit__2EDAF651" FromRole="City" ToRole="UsersLocations" />
+          <NavigationProperty Name="WorkTrip" Relationship="Self.FK__WorkTrip__IdCity__32AB8735" FromRole="City" ToRole="WorkTrip" />
+          <NavigationProperty Name="WorkTrip1" Relationship="Self.FK__WorkTrip__IdCity__339FAB6E" FromRole="City" ToRole="WorkTrip" />
         </EntityType>
-        <EntityType Name="Colour">
+        <EntityType Name="Colours">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Cars" Relationship="Self.FK__Cars__IdColour__534D60F1" FromRole="Colours" ToRole="Cars" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK__Cars__IdColour__1EA48E88" FromRole="Colours" ToRole="Cars" />
         </EntityType>
-        <EntityType Name="Friend">
+        <EntityType Name="Friends">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdUser" Type="Int64" />
           <Property Name="IdUserFriend" Type="Int64" />
-          <NavigationProperty Name="User" Relationship="Self.FK__Friends__IdUser__6383C8BA" FromRole="Friends" ToRole="Users" />
-          <NavigationProperty Name="User1" Relationship="Self.FK__Friends__IdUserF__6477ECF3" FromRole="Friends" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Friends__IdUser__367C1819" FromRole="Friends" ToRole="Users" />
+          <NavigationProperty Name="Users1" Relationship="Self.FK__Friends__IdUserF__37703C52" FromRole="Friends" ToRole="Users" />
         </EntityType>
-        <EntityType Name="User">
+        <EntityType Name="Groups">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="GroupUsers" Relationship="Self.FK__GroupUser__IdGro__3C34F16F" FromRole="Groups" ToRole="GroupUsers" />
+          <NavigationProperty Name="TravelToWork" Relationship="Self.FK__TravelToW__IdGro__40058253" FromRole="Groups" ToRole="TravelToWork" />
+        </EntityType>
+        <EntityType Name="GroupUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGroups" Type="Int64" />
+          <Property Name="IdUser" Type="Int64" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK__GroupUser__IdGro__3C34F16F" FromRole="GroupUsers" ToRole="Groups" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__GroupUser__IdUse__3D2915A8" FromRole="GroupUsers" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Translations" Relationship="Self.FK__Translati__IdLan__114A936A" FromRole="Languages" ToRole="Translations" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__IdLanguag__245D67DE" FromRole="Languages" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Phrases">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Phrase" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Translations" Relationship="Self.FK__Translati__IdPhr__123EB7A3" FromRole="Phrases" ToRole="Translations" />
+        </EntityType>
+        <EntityType Name="Translations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdLanguages" Type="Int64" />
+          <Property Name="IdPhrases" Type="Int64" />
+          <Property Name="Translation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Languages" Relationship="Self.FK__Translati__IdLan__114A936A" FromRole="Translations" ToRole="Languages" />
+          <NavigationProperty Name="Phrases" Relationship="Self.FK__Translati__IdPhr__123EB7A3" FromRole="Translations" ToRole="Phrases" />
+        </EntityType>
+        <EntityType Name="TravelToWork">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdGroups" Type="Int64" />
+          <Property Name="IdUsers" Type="Int64" />
+          <Property Name="IdCars" Type="Int64" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK__TravelToW__IdCar__41EDCAC5" FromRole="TravelToWork" ToRole="Cars" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK__TravelToW__IdGro__40058253" FromRole="TravelToWork" ToRole="Groups" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__TravelToW__IdUse__40F9A68C" FromRole="TravelToWork" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdLanguages" Type="Int64" />
           <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="IdUserType" Type="Int64" />
-          <NavigationProperty Name="CarsUsers" Relationship="Self.FK__CarsUsers__IdUse__59063A47" FromRole="Users" ToRole="CarsUsers" />
-          <NavigationProperty Name="Friends" Relationship="Self.FK__Friends__IdUser__6383C8BA" FromRole="Users" ToRole="Friends" />
-          <NavigationProperty Name="Friends1" Relationship="Self.FK__Friends__IdUserF__6477ECF3" FromRole="Users" ToRole="Friends" />
-          <NavigationProperty Name="UserType" Relationship="Self.FK__Users__IdUserTyp__5629CD9C" FromRole="Users" ToRole="UserTypes" />
-          <NavigationProperty Name="WorkTrips" Relationship="Self.FK__WorkTrip__IdUser__5EBF139D" FromRole="Users" ToRole="WorkTrip" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CarsUsers" Relationship="Self.FK__CarsUsers__IdUse__282DF8C2" FromRole="Users" ToRole="CarsUsers" />
+          <NavigationProperty Name="Friends" Relationship="Self.FK__Friends__IdUser__367C1819" FromRole="Users" ToRole="Friends" />
+          <NavigationProperty Name="Friends1" Relationship="Self.FK__Friends__IdUserF__37703C52" FromRole="Users" ToRole="Friends" />
+          <NavigationProperty Name="GroupUsers" Relationship="Self.FK__GroupUser__IdUse__3D2915A8" FromRole="Users" ToRole="GroupUsers" />
+          <NavigationProperty Name="Languages" Relationship="Self.FK__Users__IdLanguag__245D67DE" FromRole="Users" ToRole="Languages" />
+          <NavigationProperty Name="TravelToWork" Relationship="Self.FK__TravelToW__IdUse__40F9A68C" FromRole="Users" ToRole="TravelToWork" />
+          <NavigationProperty Name="UserTypes" Relationship="Self.FK__Users__IdUserTyp__25518C17" FromRole="Users" ToRole="UserTypes" />
+          <NavigationProperty Name="UsersLocations" Relationship="Self.FK__UsersLoca__IdUse__2DE6D218" FromRole="Users" ToRole="UsersLocations" />
+          <NavigationProperty Name="UsersReferences" Relationship="Self.FK__UsersRefe__IdUse__44CA3770" FromRole="Users" ToRole="UsersReferences" />
+          <NavigationProperty Name="UsersReferences1" Relationship="Self.FK__UsersRefe__IdUse__45BE5BA9" FromRole="Users" ToRole="UsersReferences" />
+          <NavigationProperty Name="WorkTrip" Relationship="Self.FK__WorkTrip__IdUser__31B762FC" FromRole="Users" ToRole="WorkTrip" />
         </EntityType>
-        <EntityType Name="UserType">
+        <EntityType Name="UsersLocations">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserType1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__Users__IdUserTyp__5629CD9C" FromRole="UserTypes" ToRole="Users" />
+          <Property Name="IdUsers" Type="Int64" />
+          <Property Name="IdCity" Type="Int64" />
+          <Property Name="Street" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Latitude" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Kind" Type="Int32" />
+          <NavigationProperty Name="City" Relationship="Self.FK__UsersLoca__IdCit__2EDAF651" FromRole="UsersLocations" ToRole="City" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__UsersLoca__IdUse__2DE6D218" FromRole="UsersLocations" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UsersReferences">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsers" Type="Int64" />
+          <Property Name="IdUsersReferences" Type="Int64" />
+          <Property Name="Rank" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Opinion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__UsersRefe__IdUse__44CA3770" FromRole="UsersReferences" ToRole="Users" />
+          <NavigationProperty Name="Users1" Relationship="Self.FK__UsersRefe__IdUse__45BE5BA9" FromRole="UsersReferences" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__IdUserTyp__25518C17" FromRole="UserTypes" ToRole="Users" />
         </EntityType>
         <EntityType Name="WorkTrip">
           <Key>
@@ -392,11 +801,11 @@
           <Property Name="FromHour" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="ToHour" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="AcceptableDistance" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="City" Relationship="Self.FK__WorkTrip__IdCity__5FB337D6" FromRole="WorkTrip" ToRole="City" />
-          <NavigationProperty Name="City1" Relationship="Self.FK__WorkTrip__IdCity__60A75C0F" FromRole="WorkTrip" ToRole="City" />
-          <NavigationProperty Name="User" Relationship="Self.FK__WorkTrip__IdUser__5EBF139D" FromRole="WorkTrip" ToRole="Users" />
+          <NavigationProperty Name="City" Relationship="Self.FK__WorkTrip__IdCity__32AB8735" FromRole="WorkTrip" ToRole="City" />
+          <NavigationProperty Name="City1" Relationship="Self.FK__WorkTrip__IdCity__339FAB6E" FromRole="WorkTrip" ToRole="City" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__WorkTrip__IdUser__31B762FC" FromRole="WorkTrip" ToRole="Users" />
         </EntityType>
-        <Association Name="FK__CarTypeDi__IdCar__4D94879B">
+        <Association Name="FK__CarTypeDi__IdCar__18EBB532">
           <End Role="CarDictionary" Type="Self.CarDictionary" Multiplicity="0..1" />
           <End Role="CarTypeDictionary" Type="Self.CarTypeDictionary" Multiplicity="*" />
           <ReferentialConstraint>
@@ -408,9 +817,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Cars__IdCarTypeD__52593CB8">
+        <Association Name="FK__Cars__IdCarTypeD__1DB06A4F">
           <End Role="CarTypeDictionary" Type="Self.CarTypeDictionary" Multiplicity="0..1" />
-          <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CarTypeDictionary">
               <PropertyRef Name="Id" />
@@ -420,9 +829,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Cars__IdColour__534D60F1">
-          <End Role="Colours" Type="Self.Colour" Multiplicity="0..1" />
-          <End Role="Cars" Type="Self.Car" Multiplicity="*" />
+        <Association Name="FK__Cars__IdColour__1EA48E88">
+          <End Role="Colours" Type="Self.Colours" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Colours">
               <PropertyRef Name="Id" />
@@ -432,9 +841,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CarsUsers__IdCar__59FA5E80">
-          <End Role="Cars" Type="Self.Car" Multiplicity="0..1" />
-          <End Role="CarsUsers" Type="Self.CarsUser" Multiplicity="*" />
+        <Association Name="FK__CarsPictu__IdCar__2180FB33">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="0..1" />
+          <End Role="CarsPictures" Type="Self.CarsPictures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarsPictures">
+              <PropertyRef Name="IdCars" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CarsUsers__IdCar__29221CFB">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="0..1" />
+          <End Role="CarsUsers" Type="Self.CarsUsers" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cars">
               <PropertyRef Name="Id" />
@@ -444,9 +865,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CarsUsers__IdUse__59063A47">
-          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
-          <End Role="CarsUsers" Type="Self.CarsUser" Multiplicity="*" />
+        <Association Name="FK__TravelToW__IdCar__41EDCAC5">
+          <End Role="Cars" Type="Self.Cars" Multiplicity="0..1" />
+          <End Role="TravelToWork" Type="Self.TravelToWork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TravelToWork">
+              <PropertyRef Name="IdCars" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CarsUsers__IdUse__282DF8C2">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="CarsUsers" Type="Self.CarsUsers" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="Id" />
@@ -456,7 +889,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__WorkTrip__IdCity__5FB337D6">
+        <Association Name="FK__UsersLoca__IdCit__2EDAF651">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="UsersLocations" Type="Self.UsersLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersLocations">
+              <PropertyRef Name="IdCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WorkTrip__IdCity__32AB8735">
           <End Role="City" Type="Self.City" Multiplicity="0..1" />
           <End Role="WorkTrip" Type="Self.WorkTrip" Multiplicity="*" />
           <ReferentialConstraint>
@@ -468,7 +913,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__WorkTrip__IdCity__60A75C0F">
+        <Association Name="FK__WorkTrip__IdCity__339FAB6E">
           <End Role="City" Type="Self.City" Multiplicity="0..1" />
           <End Role="WorkTrip" Type="Self.WorkTrip" Multiplicity="*" />
           <ReferentialConstraint>
@@ -480,9 +925,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Friends__IdUser__6383C8BA">
-          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Friends" Type="Self.Friend" Multiplicity="*" />
+        <Association Name="FK__Friends__IdUser__367C1819">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Friends" Type="Self.Friends" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="Id" />
@@ -492,9 +937,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Friends__IdUserF__6477ECF3">
-          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Friends" Type="Self.Friend" Multiplicity="*" />
+        <Association Name="FK__Friends__IdUserF__37703C52">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Friends" Type="Self.Friends" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="Id" />
@@ -504,9 +949,93 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Users__IdUserTyp__5629CD9C">
-          <End Role="UserTypes" Type="Self.UserType" Multiplicity="0..1" />
-          <End Role="Users" Type="Self.User" Multiplicity="*" />
+        <Association Name="FK__GroupUser__IdGro__3C34F16F">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="GroupUsers" Type="Self.GroupUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupUsers">
+              <PropertyRef Name="IdGroups" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TravelToW__IdGro__40058253">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="TravelToWork" Type="Self.TravelToWork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TravelToWork">
+              <PropertyRef Name="IdGroups" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupUser__IdUse__3D2915A8">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="GroupUsers" Type="Self.GroupUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupUsers">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Translati__IdLan__114A936A">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="Translations" Type="Self.Translations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Translations">
+              <PropertyRef Name="IdLanguages" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdLanguag__245D67DE">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdLanguages" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Translati__IdPhr__123EB7A3">
+          <End Role="Phrases" Type="Self.Phrases" Multiplicity="0..1" />
+          <End Role="Translations" Type="Self.Translations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phrases">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Translations">
+              <PropertyRef Name="IdPhrases" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TravelToW__IdUse__40F9A68C">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="TravelToWork" Type="Self.TravelToWork" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TravelToWork">
+              <PropertyRef Name="IdUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdUserTyp__25518C17">
+          <End Role="UserTypes" Type="Self.UserTypes" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserTypes">
               <PropertyRef Name="Id" />
@@ -516,8 +1045,44 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__WorkTrip__IdUser__5EBF139D">
-          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+        <Association Name="FK__UsersLoca__IdUse__2DE6D218">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UsersLocations" Type="Self.UsersLocations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersLocations">
+              <PropertyRef Name="IdUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersRefe__IdUse__44CA3770">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UsersReferences" Type="Self.UsersReferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersReferences">
+              <PropertyRef Name="IdUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsersRefe__IdUse__45BE5BA9">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UsersReferences" Type="Self.UsersReferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersReferences">
+              <PropertyRef Name="IdUsersReferences" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__WorkTrip__IdUser__31B762FC">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="WorkTrip" Type="Self.WorkTrip" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
@@ -528,60 +1093,121 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DriverEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CarDictionaries" EntityType="Self.CarDictionary" />
-          <EntitySet Name="Cars" EntityType="Self.Car" />
-          <EntitySet Name="CarsUsers" EntityType="Self.CarsUser" />
-          <EntitySet Name="CarTypeDictionaries" EntityType="Self.CarTypeDictionary" />
-          <EntitySet Name="Cities" EntityType="Self.City" />
-          <EntitySet Name="Colours" EntityType="Self.Colour" />
-          <EntitySet Name="Friends" EntityType="Self.Friend" />
-          <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
-          <EntitySet Name="WorkTrips" EntityType="Self.WorkTrip" />
-          <AssociationSet Name="FK__CarTypeDi__IdCar__4D94879B" Association="Self.FK__CarTypeDi__IdCar__4D94879B">
-            <End Role="CarDictionary" EntitySet="CarDictionaries" />
-            <End Role="CarTypeDictionary" EntitySet="CarTypeDictionaries" />
+        <EntityContainer Name="DriverEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CarDictionary" EntityType="Self.CarDictionary" />
+          <EntitySet Name="Cars" EntityType="Self.Cars" />
+          <EntitySet Name="CarsPictures" EntityType="Self.CarsPictures" />
+          <EntitySet Name="CarsUsers" EntityType="Self.CarsUsers" />
+          <EntitySet Name="CarTypeDictionary" EntityType="Self.CarTypeDictionary" />
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="Colours" EntityType="Self.Colours" />
+          <EntitySet Name="Friends" EntityType="Self.Friends" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" />
+          <EntitySet Name="GroupUsers" EntityType="Self.GroupUsers" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" />
+          <EntitySet Name="Phrases" EntityType="Self.Phrases" />
+          <EntitySet Name="Translations" EntityType="Self.Translations" />
+          <EntitySet Name="TravelToWork" EntityType="Self.TravelToWork" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="UsersLocations" EntityType="Self.UsersLocations" />
+          <EntitySet Name="UsersReferences" EntityType="Self.UsersReferences" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserTypes" />
+          <EntitySet Name="WorkTrip" EntityType="Self.WorkTrip" />
+          <AssociationSet Name="FK__CarTypeDi__IdCar__18EBB532" Association="Self.FK__CarTypeDi__IdCar__18EBB532">
+            <End Role="CarDictionary" EntitySet="CarDictionary" />
+            <End Role="CarTypeDictionary" EntitySet="CarTypeDictionary" />
           </AssociationSet>
-          <AssociationSet Name="FK__Cars__IdCarTypeD__52593CB8" Association="Self.FK__Cars__IdCarTypeD__52593CB8">
-            <End Role="CarTypeDictionary" EntitySet="CarTypeDictionaries" />
+          <AssociationSet Name="FK__Cars__IdCarTypeD__1DB06A4F" Association="Self.FK__Cars__IdCarTypeD__1DB06A4F">
+            <End Role="CarTypeDictionary" EntitySet="CarTypeDictionary" />
             <End Role="Cars" EntitySet="Cars" />
           </AssociationSet>
-          <AssociationSet Name="FK__Cars__IdColour__534D60F1" Association="Self.FK__Cars__IdColour__534D60F1">
+          <AssociationSet Name="FK__Cars__IdColour__1EA48E88" Association="Self.FK__Cars__IdColour__1EA48E88">
             <End Role="Colours" EntitySet="Colours" />
             <End Role="Cars" EntitySet="Cars" />
           </AssociationSet>
-          <AssociationSet Name="FK__CarsUsers__IdCar__59FA5E80" Association="Self.FK__CarsUsers__IdCar__59FA5E80">
+          <AssociationSet Name="FK__CarsPictu__IdCar__2180FB33" Association="Self.FK__CarsPictu__IdCar__2180FB33">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="CarsPictures" EntitySet="CarsPictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CarsUsers__IdCar__29221CFB" Association="Self.FK__CarsUsers__IdCar__29221CFB">
             <End Role="Cars" EntitySet="Cars" />
             <End Role="CarsUsers" EntitySet="CarsUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__CarsUsers__IdUse__59063A47" Association="Self.FK__CarsUsers__IdUse__59063A47">
+          <AssociationSet Name="FK__TravelToW__IdCar__41EDCAC5" Association="Self.FK__TravelToW__IdCar__41EDCAC5">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="TravelToWork" EntitySet="TravelToWork" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CarsUsers__IdUse__282DF8C2" Association="Self.FK__CarsUsers__IdUse__282DF8C2">
             <End Role="Users" EntitySet="Users" />
             <End Role="CarsUsers" EntitySet="CarsUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__WorkTrip__IdCity__5FB337D6" Association="Self.FK__WorkTrip__IdCity__5FB337D6">
-            <End Role="City" EntitySet="Cities" />
-            <End Role="WorkTrip" EntitySet="WorkTrips" />
+          <AssociationSet Name="FK__UsersLoca__IdCit__2EDAF651" Association="Self.FK__UsersLoca__IdCit__2EDAF651">
+            <End Role="City" EntitySet="City" />
+            <End Role="UsersLocations" EntitySet="UsersLocations" />
           </AssociationSet>
-          <AssociationSet Name="FK__WorkTrip__IdCity__60A75C0F" Association="Self.FK__WorkTrip__IdCity__60A75C0F">
-            <End Role="City" EntitySet="Cities" />
-            <End Role="WorkTrip" EntitySet="WorkTrips" />
+          <AssociationSet Name="FK__WorkTrip__IdCity__32AB8735" Association="Self.FK__WorkTrip__IdCity__32AB8735">
+            <End Role="City" EntitySet="City" />
+            <End Role="WorkTrip" EntitySet="WorkTrip" />
           </AssociationSet>
-          <AssociationSet Name="FK__Friends__IdUser__6383C8BA" Association="Self.FK__Friends__IdUser__6383C8BA">
+          <AssociationSet Name="FK__WorkTrip__IdCity__339FAB6E" Association="Self.FK__WorkTrip__IdCity__339FAB6E">
+            <End Role="City" EntitySet="City" />
+            <End Role="WorkTrip" EntitySet="WorkTrip" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Friends__IdUser__367C1819" Association="Self.FK__Friends__IdUser__367C1819">
             <End Role="Users" EntitySet="Users" />
             <End Role="Friends" EntitySet="Friends" />
           </AssociationSet>
-          <AssociationSet Name="FK__Friends__IdUserF__6477ECF3" Association="Self.FK__Friends__IdUserF__6477ECF3">
+          <AssociationSet Name="FK__Friends__IdUserF__37703C52" Association="Self.FK__Friends__IdUserF__37703C52">
             <End Role="Users" EntitySet="Users" />
             <End Role="Friends" EntitySet="Friends" />
           </AssociationSet>
-          <AssociationSet Name="FK__Users__IdUserTyp__5629CD9C" Association="Self.FK__Users__IdUserTyp__5629CD9C">
+          <AssociationSet Name="FK__GroupUser__IdGro__3C34F16F" Association="Self.FK__GroupUser__IdGro__3C34F16F">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="GroupUsers" EntitySet="GroupUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TravelToW__IdGro__40058253" Association="Self.FK__TravelToW__IdGro__40058253">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="TravelToWork" EntitySet="TravelToWork" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupUser__IdUse__3D2915A8" Association="Self.FK__GroupUser__IdUse__3D2915A8">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="GroupUsers" EntitySet="GroupUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Translati__IdLan__114A936A" Association="Self.FK__Translati__IdLan__114A936A">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Translations" EntitySet="Translations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdLanguag__245D67DE" Association="Self.FK__Users__IdLanguag__245D67DE">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Translati__IdPhr__123EB7A3" Association="Self.FK__Translati__IdPhr__123EB7A3">
+            <End Role="Phrases" EntitySet="Phrases" />
+            <End Role="Translations" EntitySet="Translations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TravelToW__IdUse__40F9A68C" Association="Self.FK__TravelToW__IdUse__40F9A68C">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TravelToWork" EntitySet="TravelToWork" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdUserTyp__25518C17" Association="Self.FK__Users__IdUserTyp__25518C17">
             <End Role="UserTypes" EntitySet="UserTypes" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK__WorkTrip__IdUser__5EBF139D" Association="Self.FK__WorkTrip__IdUser__5EBF139D">
+          <AssociationSet Name="FK__UsersLoca__IdUse__2DE6D218" Association="Self.FK__UsersLoca__IdUse__2DE6D218">
             <End Role="Users" EntitySet="Users" />
-            <End Role="WorkTrip" EntitySet="WorkTrips" />
+            <End Role="UsersLocations" EntitySet="UsersLocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersRefe__IdUse__44CA3770" Association="Self.FK__UsersRefe__IdUse__44CA3770">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersReferences" EntitySet="UsersReferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsersRefe__IdUse__45BE5BA9" Association="Self.FK__UsersRefe__IdUse__45BE5BA9">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersReferences" EntitySet="UsersReferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WorkTrip__IdUser__31B762FC" Association="Self.FK__WorkTrip__IdUser__31B762FC">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="WorkTrip" EntitySet="WorkTrip" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -589,8 +1215,8 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DriverModelStoreContainer" CdmEntityContainer="DriverEntities1">
-          <EntitySetMapping Name="CarDictionaries">
+        <EntityContainerMapping StorageEntityContainer="DriverModelStoreContainer" CdmEntityContainer="DriverEntities">
+          <EntitySetMapping Name="CarDictionary">
             <EntityTypeMapping TypeName="DriverModel.CarDictionary">
               <MappingFragment StoreEntitySet="CarDictionary">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -599,25 +1225,36 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cars">
-            <EntityTypeMapping TypeName="DriverModel.Car">
+            <EntityTypeMapping TypeName="DriverModel.Cars">
               <MappingFragment StoreEntitySet="Cars">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
                 <ScalarProperty Name="IdCarTypeDictionary" ColumnName="IdCarTypeDictionary" />
                 <ScalarProperty Name="IdColour" ColumnName="IdColour" />
+                <ScalarProperty Name="Seats" ColumnName="Seats" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarsPictures">
+            <EntityTypeMapping TypeName="DriverModel.CarsPictures">
+              <MappingFragment StoreEntitySet="CarsPictures">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdCars" ColumnName="IdCars" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CarsUsers">
-            <EntityTypeMapping TypeName="DriverModel.CarsUser">
+            <EntityTypeMapping TypeName="DriverModel.CarsUsers">
               <MappingFragment StoreEntitySet="CarsUsers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
                 <ScalarProperty Name="IdCars" ColumnName="IdCars" />
+                <ScalarProperty Name="MaxSeats" ColumnName="MaxSeats" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CarTypeDictionaries">
+          <EntitySetMapping Name="CarTypeDictionary">
             <EntityTypeMapping TypeName="DriverModel.CarTypeDictionary">
               <MappingFragment StoreEntitySet="CarTypeDictionary">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -626,16 +1263,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Cities">
+          <EntitySetMapping Name="City">
             <EntityTypeMapping TypeName="DriverModel.City">
               <MappingFragment StoreEntitySet="City">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Colours">
-            <EntityTypeMapping TypeName="DriverModel.Colour">
+            <EntityTypeMapping TypeName="DriverModel.Colours">
               <MappingFragment StoreEntitySet="Colours">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -643,7 +1281,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Friends">
-            <EntityTypeMapping TypeName="DriverModel.Friend">
+            <EntityTypeMapping TypeName="DriverModel.Friends">
               <MappingFragment StoreEntitySet="Friends">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
@@ -651,25 +1289,105 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="DriverModel.Groups">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupUsers">
+            <EntityTypeMapping TypeName="DriverModel.GroupUsers">
+              <MappingFragment StoreEntitySet="GroupUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdGroups" ColumnName="IdGroups" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="DriverModel.Languages">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phrases">
+            <EntityTypeMapping TypeName="DriverModel.Phrases">
+              <MappingFragment StoreEntitySet="Phrases">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Phrase" ColumnName="Phrase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Translations">
+            <EntityTypeMapping TypeName="DriverModel.Translations">
+              <MappingFragment StoreEntitySet="Translations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdLanguages" ColumnName="IdLanguages" />
+                <ScalarProperty Name="IdPhrases" ColumnName="IdPhrases" />
+                <ScalarProperty Name="Translation" ColumnName="Translation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TravelToWork">
+            <EntityTypeMapping TypeName="DriverModel.TravelToWork">
+              <MappingFragment StoreEntitySet="TravelToWork">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdGroups" ColumnName="IdGroups" />
+                <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+                <ScalarProperty Name="IdCars" ColumnName="IdCars" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="DriverModel.User">
+            <EntityTypeMapping TypeName="DriverModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdLanguages" ColumnName="IdLanguages" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="IdUserType" ColumnName="IdUserType" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersLocations">
+            <EntityTypeMapping TypeName="DriverModel.UsersLocations">
+              <MappingFragment StoreEntitySet="UsersLocations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+                <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Kind" ColumnName="Kind" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersReferences">
+            <EntityTypeMapping TypeName="DriverModel.UsersReferences">
+              <MappingFragment StoreEntitySet="UsersReferences">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+                <ScalarProperty Name="IdUsersReferences" ColumnName="IdUsersReferences" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Opinion" ColumnName="Opinion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserTypes">
-            <EntityTypeMapping TypeName="DriverModel.UserType">
+            <EntityTypeMapping TypeName="DriverModel.UserTypes">
               <MappingFragment StoreEntitySet="UserTypes">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserType1" ColumnName="UserType" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="WorkTrips">
+          <EntitySetMapping Name="WorkTrip">
             <EntityTypeMapping TypeName="DriverModel.WorkTrip">
               <MappingFragment StoreEntitySet="WorkTrip">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -702,7 +1420,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

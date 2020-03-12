@@ -13,10 +13,10 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DriverEntities1 : DbContext
+    public partial class DriverEntities : DbContext
     {
-        public DriverEntities1()
-            : base("name=DriverEntities1")
+        public DriverEntities()
+            : base("name=DriverEntities")
         {
         }
     
@@ -25,15 +25,24 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CarDictionary> CarDictionaries { get; set; }
-        public virtual DbSet<Car> Cars { get; set; }
-        public virtual DbSet<CarsUser> CarsUsers { get; set; }
-        public virtual DbSet<CarTypeDictionary> CarTypeDictionaries { get; set; }
-        public virtual DbSet<City> Cities { get; set; }
-        public virtual DbSet<Colour> Colours { get; set; }
-        public virtual DbSet<Friend> Friends { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<UserType> UserTypes { get; set; }
-        public virtual DbSet<WorkTrip> WorkTrips { get; set; }
+        public virtual DbSet<CarDictionary> CarDictionary { get; set; }
+        public virtual DbSet<Cars> Cars { get; set; }
+        public virtual DbSet<CarsPictures> CarsPictures { get; set; }
+        public virtual DbSet<CarsUsers> CarsUsers { get; set; }
+        public virtual DbSet<CarTypeDictionary> CarTypeDictionary { get; set; }
+        public virtual DbSet<City> City { get; set; }
+        public virtual DbSet<Colours> Colours { get; set; }
+        public virtual DbSet<Friends> Friends { get; set; }
+        public virtual DbSet<Groups> Groups { get; set; }
+        public virtual DbSet<GroupUsers> GroupUsers { get; set; }
+        public virtual DbSet<Languages> Languages { get; set; }
+        public virtual DbSet<Phrases> Phrases { get; set; }
+        public virtual DbSet<Translations> Translations { get; set; }
+        public virtual DbSet<TravelToWork> TravelToWork { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<UsersLocations> UsersLocations { get; set; }
+        public virtual DbSet<UsersReferences> UsersReferences { get; set; }
+        public virtual DbSet<UserTypes> UserTypes { get; set; }
+        public virtual DbSet<WorkTrip> WorkTrip { get; set; }
     }
 }

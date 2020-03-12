@@ -19,18 +19,19 @@ namespace Toci.Driver.Bll.Porsche.Association
 
         public abstract WorkTrip GetAssociations(WorkTrip subject, WorkTrip candidateSubject);
 
-        public List<IAssociationEntity> GetAssociationsFromCollection(List<WorkTrip> subjects)
+        public List<IAssociationEntity> GetAssociationsFromCollection(WorkTrip requested, List<WorkTrip> subjects)
         {
             List <IAssociationEntity> result = new List<IAssociationEntity>();
 
             foreach (WorkTrip item in subjects)
             {
-
                 IAssociationEntity entity = new AssociationEntity();
-                entity.Current = item;
-                foreach (WorkTrip element in subjects)
+                entity.Current = requested;
+                
+                WorkTrip associated = GetAssociations(requested, item);
+                if (associated != null)
                 {
-                    entity.Associatated.Add(GetAssociations(item, element));//entity associated
+                    entity.Associatated.Add(associated); //entity associated
                 }
 
                 result.Add(entity);

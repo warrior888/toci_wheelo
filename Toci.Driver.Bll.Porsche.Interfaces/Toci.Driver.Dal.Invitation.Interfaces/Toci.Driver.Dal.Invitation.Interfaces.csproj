@@ -50,13 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.cs">
-      <DependentUpon>DriverModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="CarDictionary.cs">
       <DependentUpon>DriverModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CarsUser.cs">
+    <Compile Include="Cars.cs">
+      <DependentUpon>DriverModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarsPictures.cs">
+      <DependentUpon>DriverModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarsUsers.cs">
       <DependentUpon>DriverModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CarTypeDictionary.cs">
@@ -65,7 +68,7 @@
     <Compile Include="City.cs">
       <DependentUpon>DriverModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Colour.cs">
+    <Compile Include="Colours.cs">
       <DependentUpon>DriverModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DriverModel.Context.cs">
@@ -83,14 +86,39 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DriverModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Friend.cs">
+    <Compile Include="Friends.cs">
+      <DependentUpon>DriverModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Groups.cs">
+      <DependentUpon>DriverModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GroupUsers.cs">
+      <DependentUpon>DriverModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IDal.cs" />
+    <Compile Include="Languages.cs">
+      <DependentUpon>DriverModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Phrases.cs">
       <DependentUpon>DriverModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs">
+    <Compile Include="Translations.cs">
       <DependentUpon>DriverModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserType.cs">
+    <Compile Include="TravelToWork.cs">
+      <DependentUpon>DriverModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>DriverModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsersLocations.cs">
+      <DependentUpon>DriverModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsersReferences.cs">
+      <DependentUpon>DriverModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserTypes.cs">
       <DependentUpon>DriverModel.tt</DependentUpon>
     </Compile>
     <Compile Include="WorkTrip.cs">

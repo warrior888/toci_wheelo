@@ -12,18 +12,14 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
     using System;
     using System.Collections.Generic;
     
-    public partial class CarDictionary
+    public partial class Translations
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CarDictionary()
-        {
-            this.CarTypeDictionary = new HashSet<CarTypeDictionary>();
-        }
-    
         public long Id { get; set; }
-        public string CarType { get; set; }
+        public Nullable<long> IdLanguages { get; set; }
+        public Nullable<long> IdPhrases { get; set; }
+        public string Translation { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CarTypeDictionary> CarTypeDictionary { get; set; }
+        public virtual Languages Languages { get; set; }
+        public virtual Phrases Phrases { get; set; }
     }
 }

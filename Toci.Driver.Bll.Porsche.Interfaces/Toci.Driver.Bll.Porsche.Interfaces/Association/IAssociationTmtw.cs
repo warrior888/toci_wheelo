@@ -12,6 +12,6 @@ namespace Toci.Driver.Bll.Porsche.Interfaces.Association
     {
         WorkTrip GetAssociations(WorkTrip subject, WorkTrip candidateSubject);
 
-       List<IAssociationEntity> GetAssociationsFromCollection(List<WorkTrip> subjects);
+       List<IAssociationEntity> GetAssociationsFromCollection(WorkTrip requested, List<WorkTrip> subjects);
     }
 }

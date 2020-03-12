@@ -12,30 +12,29 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Cars
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Cars()
         {
-            this.CarsUsers = new HashSet<CarsUser>();
-            this.Friends = new HashSet<Friend>();
-            this.Friends1 = new HashSet<Friend>();
-            this.WorkTrips = new HashSet<WorkTrip>();
+            this.CarsPictures = new HashSet<CarsPictures>();
+            this.CarsUsers = new HashSet<CarsUsers>();
+            this.TravelToWork = new HashSet<TravelToWork>();
         }
     
         public long Id { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public Nullable<long> IdUserType { get; set; }
+        public string LicensePlate { get; set; }
+        public Nullable<long> IdCarTypeDictionary { get; set; }
+        public Nullable<long> IdColour { get; set; }
+        public Nullable<int> Seats { get; set; }
     
+        public virtual CarTypeDictionary CarTypeDictionary { get; set; }
+        public virtual Colours Colours { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CarsUser> CarsUsers { get; set; }
+        public virtual ICollection<CarsPictures> CarsPictures { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Friend> Friends { get; set; }
+        public virtual ICollection<CarsUsers> CarsUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Friend> Friends1 { get; set; }
-        public virtual UserType UserType { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WorkTrip> WorkTrips { get; set; }
+        public virtual ICollection<TravelToWork> TravelToWork { get; set; }
     }
 }

@@ -16,11 +16,31 @@ namespace Toci.Driver.Bll.Porsche.Association
         
         public override WorkTrip GetAssociations(WorkTrip subject, WorkTrip candidateSubject)
         {
-            //subject.
-            //bool isInRange = AssociationCalculations.CalculateAssociation(subject.FromLongitude,subject.FromLatitude,candidateSubject.FromLongitude,candidateSubject.FromLatitude,subject.AcceptableDistance);
+            bool hoursMatch = subject.FromHour == candidateSubject.FromHour &&
+                              subject.ToHour == candidateSubject.ToHour;
+
+            if (hoursMatch)
+            {
 
 
-            
+                bool isInRange = AssociationCalculations.CalculateAssociation((double)subject.FromLongitude.Value,
+                    (double)subject.FromLatitude.Value, (double)candidateSubject.FromLongitude.Value,
+                    (double)candidateSubject.FromLatitude.Value,
+                    (double)subject.AcceptableDistance.Value);
+
+                if (isInRange)
+                {
+                    bool isInRangeTo = AssociationCalculations.CalculateAssociation((double)subject.ToLongitude.Value,
+                        (double)subject.ToLatitude.Value, (double)candidateSubject.ToLongitude.Value,
+                        (double)candidateSubject.ToLatitude.Value,
+                        (double)subject.AcceptableDistance.Value);
+
+                    if (isInRangeTo)
+                    {
+                        return candidateSubject;
+                    }
+                }
+            }
 
             return null;
         }

@@ -12,13 +12,13 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
     using System;
     using System.Collections.Generic;
     
-    public partial class Friend
+    public partial class Friends
     {
         public long Id { get; set; }
         public Nullable<long> IdUser { get; set; }
         public Nullable<long> IdUserFriend { get; set; }
     
-        public virtual User User { get; set; }
-        public virtual User User1 { get; set; }
+        public virtual Users Users { get; set; }
+        public virtual Users Users1 { get; set; }
     }
 }

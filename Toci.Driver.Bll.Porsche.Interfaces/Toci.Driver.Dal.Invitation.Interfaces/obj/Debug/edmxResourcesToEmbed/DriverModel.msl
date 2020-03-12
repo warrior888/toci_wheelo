@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DriverModelStoreContainer" CdmEntityContainer="DriverEntities1">
-    <EntitySetMapping Name="CarDictionaries">
+  <EntityContainerMapping StorageEntityContainer="DriverModelStoreContainer" CdmEntityContainer="DriverEntities">
+    <EntitySetMapping Name="CarDictionary">
       <EntityTypeMapping TypeName="DriverModel.CarDictionary">
         <MappingFragment StoreEntitySet="CarDictionary">
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -10,25 +10,36 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Cars">
-      <EntityTypeMapping TypeName="DriverModel.Car">
+      <EntityTypeMapping TypeName="DriverModel.Cars">
         <MappingFragment StoreEntitySet="Cars">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="LicensePlate" ColumnName="LicensePlate" />
           <ScalarProperty Name="IdCarTypeDictionary" ColumnName="IdCarTypeDictionary" />
           <ScalarProperty Name="IdColour" ColumnName="IdColour" />
+          <ScalarProperty Name="Seats" ColumnName="Seats" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarsPictures">
+      <EntityTypeMapping TypeName="DriverModel.CarsPictures">
+        <MappingFragment StoreEntitySet="CarsPictures">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdCars" ColumnName="IdCars" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CarsUsers">
-      <EntityTypeMapping TypeName="DriverModel.CarsUser">
+      <EntityTypeMapping TypeName="DriverModel.CarsUsers">
         <MappingFragment StoreEntitySet="CarsUsers">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
           <ScalarProperty Name="IdCars" ColumnName="IdCars" />
+          <ScalarProperty Name="MaxSeats" ColumnName="MaxSeats" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CarTypeDictionaries">
+    <EntitySetMapping Name="CarTypeDictionary">
       <EntityTypeMapping TypeName="DriverModel.CarTypeDictionary">
         <MappingFragment StoreEntitySet="CarTypeDictionary">
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -37,16 +48,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Cities">
+    <EntitySetMapping Name="City">
       <EntityTypeMapping TypeName="DriverModel.City">
         <MappingFragment StoreEntitySet="City">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Colours">
-      <EntityTypeMapping TypeName="DriverModel.Colour">
+      <EntityTypeMapping TypeName="DriverModel.Colours">
         <MappingFragment StoreEntitySet="Colours">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -54,7 +66,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Friends">
-      <EntityTypeMapping TypeName="DriverModel.Friend">
+      <EntityTypeMapping TypeName="DriverModel.Friends">
         <MappingFragment StoreEntitySet="Friends">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
@@ -62,25 +74,105 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="DriverModel.Groups">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupUsers">
+      <EntityTypeMapping TypeName="DriverModel.GroupUsers">
+        <MappingFragment StoreEntitySet="GroupUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdGroups" ColumnName="IdGroups" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="DriverModel.Languages">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phrases">
+      <EntityTypeMapping TypeName="DriverModel.Phrases">
+        <MappingFragment StoreEntitySet="Phrases">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Phrase" ColumnName="Phrase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Translations">
+      <EntityTypeMapping TypeName="DriverModel.Translations">
+        <MappingFragment StoreEntitySet="Translations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdLanguages" ColumnName="IdLanguages" />
+          <ScalarProperty Name="IdPhrases" ColumnName="IdPhrases" />
+          <ScalarProperty Name="Translation" ColumnName="Translation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TravelToWork">
+      <EntityTypeMapping TypeName="DriverModel.TravelToWork">
+        <MappingFragment StoreEntitySet="TravelToWork">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdGroups" ColumnName="IdGroups" />
+          <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+          <ScalarProperty Name="IdCars" ColumnName="IdCars" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="DriverModel.User">
+      <EntityTypeMapping TypeName="DriverModel.Users">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdLanguages" ColumnName="IdLanguages" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="IdUserType" ColumnName="IdUserType" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersLocations">
+      <EntityTypeMapping TypeName="DriverModel.UsersLocations">
+        <MappingFragment StoreEntitySet="UsersLocations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Kind" ColumnName="Kind" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersReferences">
+      <EntityTypeMapping TypeName="DriverModel.UsersReferences">
+        <MappingFragment StoreEntitySet="UsersReferences">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdUsers" ColumnName="IdUsers" />
+          <ScalarProperty Name="IdUsersReferences" ColumnName="IdUsersReferences" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Opinion" ColumnName="Opinion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserTypes">
-      <EntityTypeMapping TypeName="DriverModel.UserType">
+      <EntityTypeMapping TypeName="DriverModel.UserTypes">
         <MappingFragment StoreEntitySet="UserTypes">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserType1" ColumnName="UserType" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="WorkTrips">
+    <EntitySetMapping Name="WorkTrip">
       <EntityTypeMapping TypeName="DriverModel.WorkTrip">
         <MappingFragment StoreEntitySet="WorkTrip">
           <ScalarProperty Name="Id" ColumnName="Id" />
