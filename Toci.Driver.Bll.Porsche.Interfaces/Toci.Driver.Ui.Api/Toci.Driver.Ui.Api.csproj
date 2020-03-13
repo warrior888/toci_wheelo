@@ -285,6 +285,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\AssociatedWall\AssociatedWallAreaRegistration.cs" />
     <Compile Include="Areas\AssociatedWall\Controllers\AssociatedGroupWallsController.cs" />
+    <Compile Include="Areas\Friends\Controllers\FriendsController.cs" />
+    <Compile Include="Areas\Friends\FriendsAreaRegistration.cs" />
     <Compile Include="Areas\Registration\Controllers\UsersController.cs" />
     <Compile Include="Areas\Registration\RegistrationAreaRegistration.cs" />
     <Compile Include="Areas\WorkTrip\Controllers\WorkTripsController.cs" />
@@ -307,6 +309,7 @@
     <Content Include="Areas\Registration\Views\web.config" />
     <Content Include="Areas\WorkTrip\Views\web.config" />
     <Content Include="Areas\AssociatedWall\Views\web.config" />
+    <Content Include="Areas\Friends\Views\web.config" />
     <None Include="Dockerfile" />
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
@@ -335,6 +338,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AssociatedWall\Models\" />
     <Folder Include="Areas\AssociatedWall\Views\Shared\" />
+    <Folder Include="Areas\Friends\Models\" />
+    <Folder Include="Areas\Friends\Views\Shared\" />
     <Folder Include="Areas\Registration\Models\" />
     <Folder Include="Areas\Registration\Views\Shared\" />
     <Folder Include="Areas\WorkTrip\Models\" />
