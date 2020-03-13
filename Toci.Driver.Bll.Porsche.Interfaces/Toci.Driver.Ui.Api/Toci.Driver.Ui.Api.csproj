@@ -310,10 +310,6 @@
     <Content Include="Areas\WorkTrip\Views\web.config" />
     <Content Include="Areas\AssociatedWall\Views\web.config" />
     <Content Include="Areas\Friends\Views\web.config" />
-    <None Include="Dockerfile" />
-    <None Include=".dockerignore">
-      <DependentUpon>Dockerfile</DependentUpon>
-    </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

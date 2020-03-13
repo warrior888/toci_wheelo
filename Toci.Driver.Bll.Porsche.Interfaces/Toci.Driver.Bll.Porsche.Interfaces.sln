@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Driver.Ui.Api.Interfac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Driver.Ui.Api", "Toci.Driver.Ui.Api\Toci.Driver.Ui.Api.csproj", "{CA354D29-D436-44C8-8732-54A93D43DD43}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F48F9E9D-679E-4A18-B310-965FEE22DB92}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Driver.Common.Gatekeeper.Interfaces", "..\Toci.Driver.Common.Gatekeeper.Interfaces\Toci.Driver.Common.Gatekeeper.Interfaces.csproj", "{27C99ADE-E0E6-4432-98FD-9F6BBF9B1039}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Driver.Common.Gatekeeper", "Toci.Driver.Common.Gatekeeper\Toci.Driver.Common.Gatekeeper.csproj", "{10FCBE5C-8B00-4B7E-80B0-9066D18FE8A0}"
@@ -51,10 +49,6 @@ Global
 		{CA354D29-D436-44C8-8732-54A93D43DD43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA354D29-D436-44C8-8732-54A93D43DD43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA354D29-D436-44C8-8732-54A93D43DD43}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F48F9E9D-679E-4A18-B310-965FEE22DB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F48F9E9D-679E-4A18-B310-965FEE22DB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F48F9E9D-679E-4A18-B310-965FEE22DB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F48F9E9D-679E-4A18-B310-965FEE22DB92}.Release|Any CPU.Build.0 = Release|Any CPU
 		{27C99ADE-E0E6-4432-98FD-9F6BBF9B1039}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{27C99ADE-E0E6-4432-98FD-9F6BBF9B1039}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27C99ADE-E0E6-4432-98FD-9F6BBF9B1039}.Release|Any CPU.ActiveCfg = Release|Any CPU
