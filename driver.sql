@@ -146,7 +146,7 @@ create table Friends
 	IdUser bigint references Users(id),
 	IdUserFriend bigint references Users(id)
 );
-
+select * from friends;
 create table Groups
 (
 	Id bigint identity primary key,
@@ -189,6 +189,8 @@ create table AssociatedGroupUsers
 	IdUsers bigint references Users(Id),
 	IdAssociatedGroups bigint references AssociatedGroups(Id)
 );
+
+select * from users;
 
 create table AssociatedGroupWall
 (

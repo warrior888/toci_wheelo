@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  toci.driver.ui.api:
-    image: ${DOCKER_REGISTRY-}tocidriveruiapi
-    build:
-      context: .\Toci.Driver.Ui.Api
-      dockerfile: Dockerfile
