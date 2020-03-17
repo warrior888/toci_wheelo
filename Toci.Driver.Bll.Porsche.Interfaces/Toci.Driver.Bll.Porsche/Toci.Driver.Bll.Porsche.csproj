@@ -46,6 +46,7 @@
     <Compile Include="Association\AssociationTmtw.cs" />
     <Compile Include="Association\AssociationTmtwBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Toci.Driver.Common.Gatekeeper.Interfaces\Toci.Driver.Common.Gatekeeper.Interfaces.csproj">
@@ -64,10 +65,11 @@
       <Project>{6307169e-918c-43c4-802b-7f035296c0af}</Project>
       <Name>Toci.Driver.Dal.Invitation.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Toci.Driver.Dal\Toci.Driver.Dal.Invitation.csproj">
+    <ProjectReference Include="..\Toci.Driver.Dal\Toci.Wheelo..Dal.csproj">
       <Project>{12db987c-2e2d-4eff-9a6b-f59e6c5e0b50}</Project>
-      <Name>Toci.Driver.Dal.Invitation</Name>
+      <Name>Toci.Wheelo..Dal</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,6 +7,6 @@ namespace Toci.Driver.Dal.Invitation.Interfaces
 {
     public interface IDal<TModel>
     {
-        IQueryable<TModel> Select(Expression<Func<TModel, bool>> where);
+       // IQueryable<TModel> Select(Expression<Func<TModel, bool>> where);
     }
 }

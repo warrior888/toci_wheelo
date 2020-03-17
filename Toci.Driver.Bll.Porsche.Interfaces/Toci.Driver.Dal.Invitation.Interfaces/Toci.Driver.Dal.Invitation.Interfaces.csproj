@@ -105,6 +105,8 @@
       <DependentUpon>DriverModel.tt</DependentUpon>
     </Compile>
     <Compile Include="IDal.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="IUserRepository.cs" />
     <Compile Include="Languages.cs">
       <DependentUpon>DriverModel.tt</DependentUpon>
     </Compile>

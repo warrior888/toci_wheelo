@@ -8,11 +8,10 @@ namespace Toci.Driver.Dal.Invitation
 {
     public class Dal<TModel> : DalBase<TModel> where TModel : class
     {
-        DriverEntities DriverEntities = new DriverEntities();
-
-        public override IQueryable<TModel> Select(Expression<Func<TModel, bool>> @where)
+        public Dal(DriverEntities db) : base(db)
         {
-            return DriverEntities.Set<TModel>().Where(where);
         }
+        // ??
+       
     }
 }

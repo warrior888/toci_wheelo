@@ -8,6 +8,13 @@ namespace Toci.Driver.Dal.Invitation
 {
     public abstract class DalBase<TModel> : IDal<TModel>
     {
-        public abstract IQueryable<TModel> Select(Expression<Func<TModel, bool>> @where);
+        protected DriverEntities WheeloDbContext;
+
+        public DalBase(DriverEntities db)
+        {
+            WheeloDbContext = db;
+        }
+
+       // public abstract IQueryable<TModel> Select(Expression<Func<TModel, bool>> @where);
     }
 }

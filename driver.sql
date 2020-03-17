@@ -83,7 +83,7 @@ create table CarsPictures
 	IdCars bigint references Cars(Id),
 	Picture text -- base 64
 );
-
+select * from users;
 create table Users
 (
 	Id bigint identity primary key,
