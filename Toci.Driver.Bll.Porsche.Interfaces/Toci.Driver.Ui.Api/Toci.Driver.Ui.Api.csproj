@@ -395,9 +395,9 @@
       <Project>{6307169e-918c-43c4-802b-7f035296c0af}</Project>
       <Name>Toci.Driver.Dal.Invitation.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Toci.Driver.Dal\Toci.Wheelo..Dal.csproj">
+    <ProjectReference Include="..\Toci.Driver.Dal\Toci.Wheelo.Dal.Anathema.csproj">
       <Project>{12db987c-2e2d-4eff-9a6b-f59e6c5e0b50}</Project>
-      <Name>Toci.Wheelo..Dal</Name>
+      <Name>Toci.Wheelo.Dal.Anathema</Name>
     </ProjectReference>
     <ProjectReference Include="..\Toci.Driver.Ui.Api.Interfaces\Toci.Driver.Ui.Api.Interfaces.csproj">
       <Project>{f1d08ed3-1bbb-42b2-a1ab-361450ba0ed5}</Project>

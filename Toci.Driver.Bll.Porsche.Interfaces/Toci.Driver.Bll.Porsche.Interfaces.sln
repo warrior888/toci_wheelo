@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Driver.Bll.Porsche", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Driver.Dal.Invitation.Interfaces", "Toci.Driver.Dal.Invitation.Interfaces\Toci.Driver.Dal.Invitation.Interfaces.csproj", "{6307169E-918C-43C4-802B-7F035296C0AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Wheelo..Dal", "Toci.Driver.Dal\Toci.Wheelo..Dal.csproj", "{12DB987C-2E2D-4EFF-9A6B-F59E6C5E0B50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Wheelo.Dal.Anathema", "Toci.Driver.Dal\Toci.Wheelo.Dal.Anathema.csproj", "{12DB987C-2E2D-4EFF-9A6B-F59E6C5E0B50}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Driver.Ui.Api.Interfaces", "Toci.Driver.Ui.Api.Interfaces\Toci.Driver.Ui.Api.Interfaces.csproj", "{F1D08ED3-1BBB-42B2-A1AB-361450BA0ED5}"
 EndProject
