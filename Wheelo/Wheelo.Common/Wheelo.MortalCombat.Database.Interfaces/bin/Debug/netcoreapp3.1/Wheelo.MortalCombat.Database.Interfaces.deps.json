@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Wheelo.MortalCombat.Database.Interfaces/1.0.0": {
+        "runtime": {
+          "Wheelo.MortalCombat.Database.Interfaces.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Wheelo.MortalCombat.Database.Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

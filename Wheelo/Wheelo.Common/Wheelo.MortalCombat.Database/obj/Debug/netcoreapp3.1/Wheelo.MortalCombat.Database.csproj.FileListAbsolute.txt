@@ -1,0 +1,12 @@
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database\bin\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.deps.json
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database\bin\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.dll
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database\bin\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.pdb
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database\bin\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.Interfaces.dll
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database\bin\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.Interfaces.pdb
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.csprojAssemblyReference.cache
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.AssemblyInfoInputs.cache
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.AssemblyInfo.cs
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.csproj.CoreCompileInputs.cache
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.csproj.CopyComplete
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.dll
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.pdb

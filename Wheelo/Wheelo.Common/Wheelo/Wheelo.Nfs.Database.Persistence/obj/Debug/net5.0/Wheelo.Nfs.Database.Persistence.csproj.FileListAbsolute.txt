@@ -2,7 +2,6 @@ C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Data
 C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\bin\Debug\net5.0\Wheelo.Nfs.Database.Persistence.dll
 C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\bin\Debug\net5.0\ref\Wheelo.Nfs.Database.Persistence.dll
 C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\bin\Debug\net5.0\Wheelo.Nfs.Database.Persistence.pdb
-C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\obj\Debug\net5.0\Wheelo.Nfs.Database.Persistence.csprojAssemblyReference.cache
 C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\obj\Debug\net5.0\Wheelo.Nfs.Database.Persistence.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\obj\Debug\net5.0\Wheelo.Nfs.Database.Persistence.AssemblyInfoInputs.cache
 C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\obj\Debug\net5.0\Wheelo.Nfs.Database.Persistence.AssemblyInfo.cs
@@ -10,3 +9,6 @@ C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Data
 C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\obj\Debug\net5.0\Wheelo.Nfs.Database.Persistence.dll
 C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\obj\Debug\net5.0\ref\Wheelo.Nfs.Database.Persistence.dll
 C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\obj\Debug\net5.0\Wheelo.Nfs.Database.Persistence.pdb
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\bin\Debug\net5.0\Wheelo.Nfs.Database.Persistence.runtimeconfig.json
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\bin\Debug\net5.0\Wheelo.Nfs.Database.Persistence.runtimeconfig.dev.json
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\obj\Debug\net5.0\Wheelo.Nfs.Database.Persistence.genruntimeconfig.cache
