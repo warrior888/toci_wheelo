@@ -1,24 +1,148 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tomek\\Source\\Repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo\\Wheelo.Nfs.Database.Persistence\\Wheelo.Nfs.Database.Persistence.csproj": {}
+    "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo\\Wheelo.Nfs.Database.Persistence\\Wheelo.Nfs.Database.Persistence.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tomek\\Source\\Repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo\\Wheelo.Nfs.Database.Persistence\\Wheelo.Nfs.Database.Persistence.csproj": {
+    "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomek\\Source\\Repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo\\Wheelo.Nfs.Database.Persistence\\Wheelo.Nfs.Database.Persistence.csproj",
-        "projectName": "Wheelo.Nfs.Database.Persistence",
-        "projectPath": "C:\\Users\\tomek\\Source\\Repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo\\Wheelo.Nfs.Database.Persistence\\Wheelo.Nfs.Database.Persistence.csproj",
-        "packagesPath": "C:\\Users\\tomek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomek\\Source\\Repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo\\Wheelo.Nfs.Database.Persistence\\obj\\",
+        "projectUniqueName": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj",
+        "projectName": "Wheelo.MortalCombat.Database.Interfaces",
+        "projectPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\bzapa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\tomek\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\bzapa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\Wheelo.MortalCombat.Database.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\Wheelo.MortalCombat.Database.csproj",
+        "projectName": "Wheelo.MortalCombat.Database",
+        "projectPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\Wheelo.MortalCombat.Database.csproj",
+        "packagesPath": "C:\\Users\\bzapa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\bzapa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo\\Wheelo.Nfs.Database.Persistence\\Wheelo.Nfs.Database.Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo\\Wheelo.Nfs.Database.Persistence\\Wheelo.Nfs.Database.Persistence.csproj",
+        "projectName": "Wheelo.Nfs.Database.Persistence",
+        "projectPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo\\Wheelo.Nfs.Database.Persistence\\Wheelo.Nfs.Database.Persistence.csproj",
+        "packagesPath": "C:\\Users\\bzapa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo\\Wheelo.Nfs.Database.Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\bzapa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -30,7 +154,14 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj"
+              },
+              "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\Wheelo.MortalCombat.Database.csproj": {
+                "projectPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\Wheelo.MortalCombat.Database.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -79,7 +210,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

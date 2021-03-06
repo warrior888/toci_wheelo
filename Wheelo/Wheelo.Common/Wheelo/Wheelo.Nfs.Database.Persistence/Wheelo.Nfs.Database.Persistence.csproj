@@ -25,4 +25,9 @@
     <Folder Include="Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Wheelo.MortalCombat.Database.Interfaces\Wheelo.MortalCombat.Database.Interfaces.csproj" />
+    <ProjectReference Include="..\..\Wheelo.MortalCombat.Database\Wheelo.MortalCombat.Database.csproj" />
+  </ItemGroup>
+
 </Project>

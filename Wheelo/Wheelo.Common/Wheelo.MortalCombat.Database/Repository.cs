@@ -6,16 +6,10 @@ using Wheelo.MortalCombat.Database.Interfaces;
 
 namespace Wheelo.MortalCombat.Database
 {
-    public class Repository : IRepository<IModel>
+    public abstract class Repository<TModel> : IRepository<TModel>
     {
-        public bool Delete(IModel model)
-        {
-            return true;
-        }
-
-        public IQueryable<IModel> Select()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract bool Delete(TModel model);
+        public abstract TModel Insert(TModel model);
+        public abstract IQueryable<TModel> Select();
     }
 }

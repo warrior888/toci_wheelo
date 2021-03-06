@@ -27,3 +27,9 @@ C:\Users\tomek\Source\Repos\toci_wheelo2\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.
 C:\Users\tomek\Source\Repos\toci_wheelo2\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\obj\Debug\net5.0\Wheelo.Nfs.Database.Persistence.pdb
 C:\Users\tomek\Source\Repos\toci_wheelo2\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\obj\Debug\net5.0\Wheelo.Nfs.Database.Persistence.genruntimeconfig.cache
 C:\Users\tomek\Source\Repos\toci_wheelo2\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\obj\Debug\net5.0\Wheelo.Nfs.Database.Persistence.csprojAssemblyReference.cache
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\bin\Debug\net5.0\Wheelo.MortalCombat.Database.dll
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\bin\Debug\net5.0\Wheelo.MortalCombat.Database.Interfaces.dll
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\bin\Debug\net5.0\Wheelo.MortalCombat.Database.Interfaces.pdb
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\bin\Debug\net5.0\Wheelo.MortalCombat.Database.pdb
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\obj\Debug\net5.0\Wheelo.Nfs.Database.Persistence.csprojAssemblyReference.cache
+C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo\Wheelo.Nfs.Database.Persistence\obj\Debug\net5.0\Wheelo.Nfs.Database.Persistence.csproj.CopyComplete
