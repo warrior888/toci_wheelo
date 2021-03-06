@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wheelo.Nfs.Database.Persistence", "Wheelo.Nfs.Database.Persistence\Wheelo.Nfs.Database.Persistence.csproj", "{4972EA99-37C8-4FB0-B965-E1A534E4B722}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wheelo.Common", "Wheelo.Common", "{274274C7-194C-4825-B5E0-567559EE6CB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4972EA99-37C8-4FB0-B965-E1A534E4B722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4972EA99-37C8-4FB0-B965-E1A534E4B722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4972EA99-37C8-4FB0-B965-E1A534E4B722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4972EA99-37C8-4FB0-B965-E1A534E4B722}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4972EA99-37C8-4FB0-B965-E1A534E4B722} = {274274C7-194C-4825-B5E0-567559EE6CB1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6178615-65F3-416C-AD3D-55B9660A9A4A}
+	EndGlobalSection
+EndGlobal
