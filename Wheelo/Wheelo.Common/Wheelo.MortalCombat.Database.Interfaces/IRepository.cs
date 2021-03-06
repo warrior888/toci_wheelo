@@ -9,7 +9,6 @@ namespace Wheelo.MortalCombat.Database.Interfaces
     {
         IQueryable<TModel> Select();
 
-
         bool Delete(TModel model);
     }
 }

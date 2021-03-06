@@ -7,3 +7,11 @@ C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Da
 C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database.Interfaces\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.Interfaces.csproj.CoreCompileInputs.cache
 C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database.Interfaces\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.Interfaces.dll
 C:\Users\bzapa\Documents\toci_wheelo\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database.Interfaces\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.Interfaces.pdb
+C:\Users\tomek\Source\Repos\toci_wheelo2\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database.Interfaces\bin\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.Interfaces.deps.json
+C:\Users\tomek\Source\Repos\toci_wheelo2\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database.Interfaces\bin\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.Interfaces.dll
+C:\Users\tomek\Source\Repos\toci_wheelo2\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database.Interfaces\bin\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.Interfaces.pdb
+C:\Users\tomek\Source\Repos\toci_wheelo2\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database.Interfaces\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.Interfaces.AssemblyInfoInputs.cache
+C:\Users\tomek\Source\Repos\toci_wheelo2\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database.Interfaces\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.Interfaces.AssemblyInfo.cs
+C:\Users\tomek\Source\Repos\toci_wheelo2\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database.Interfaces\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\tomek\Source\Repos\toci_wheelo2\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database.Interfaces\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.Interfaces.dll
+C:\Users\tomek\Source\Repos\toci_wheelo2\Wheelo\Wheelo.Common\Wheelo.MortalCombat.Database.Interfaces\obj\Debug\netcoreapp3.1\Wheelo.MortalCombat.Database.Interfaces.pdb
