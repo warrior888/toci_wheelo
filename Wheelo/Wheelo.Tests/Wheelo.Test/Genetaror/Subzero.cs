@@ -18,30 +18,8 @@ namespace Wheelo.Test.Generator
         [TestMethod]
         public async Task BrutalityAsync()
         {
-            var baseAddress = new Uri("https://private-anon-a2c354519e-carsapi1.apiary-mock.com/");
-
-            using (var httpClient = new HttpClient { BaseAddress = baseAddress })
-            {
-
-                using (var response = await httpClient.GetAsync("cars"))
-                {
-
-                    string responseData = await response.Content.ReadAsStringAsync();
-
-                    responseData = 
-
-
-
-
-
-                }
-            }
-
-
-
-
+     
             Fatality(50);
-
         }
 
         public int Fatality(int numRows)
