@@ -11,7 +11,9 @@
           "Microsoft.EntityFrameworkCore": "6.0.0-preview.1.21102.2",
           "Microsoft.EntityFrameworkCore.Design": "6.0.0-preview.1.21102.2",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.0-preview.1.21102.2",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.0-preview1"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.0-preview1",
+          "Wheelo.MortalCombat.Database": "1.0.0",
+          "Wheelo.MortalCombat.Database.Interfaces": "1.0.0"
         },
         "runtime": {
           "Wheelo.Nfs.Database.Persistence.dll": {}
@@ -242,6 +244,19 @@
             "fileVersion": "6.0.21.10212"
           }
         }
+      },
+      "Wheelo.MortalCombat.Database/1.0.0": {
+        "dependencies": {
+          "Wheelo.MortalCombat.Database.Interfaces": "1.0.0"
+        },
+        "runtime": {
+          "Wheelo.MortalCombat.Database.dll": {}
+        }
+      },
+      "Wheelo.MortalCombat.Database.Interfaces/1.0.0": {
+        "runtime": {
+          "Wheelo.MortalCombat.Database.Interfaces.dll": {}
+        }
       }
     }
   },
@@ -404,6 +419,16 @@
       "sha512": "sha512-OpeMUeevV3isOGNeiEwuBNq4fNA4B5SuFb941AxzKyjtddknFCV0ykIxyIA4Xxy5O3NjHmnfzqdv4thfC76mwg==",
       "path": "system.runtime.compilerservices.unsafe/6.0.0-preview.1.21102.12",
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0-preview.1.21102.12.nupkg.sha512"
+    },
+    "Wheelo.MortalCombat.Database/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Wheelo.MortalCombat.Database.Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
