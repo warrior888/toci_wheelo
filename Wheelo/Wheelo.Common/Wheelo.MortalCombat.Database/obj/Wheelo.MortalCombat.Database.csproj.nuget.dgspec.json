@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\Wheelo.MortalCombat.Database.csproj": {}
+    "C:\\Users\\tomek\\source\\repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\Wheelo.MortalCombat.Database.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj": {
+    "C:\\Users\\tomek\\source\\repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\tomek\\source\\repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj",
         "projectName": "Wheelo.MortalCombat.Database.Interfaces",
-        "projectPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj",
-        "packagesPath": "C:\\Users\\bzapa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\obj\\",
+        "projectPath": "C:\\Users\\tomek\\source\\repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\tomek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomek\\source\\repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\bzapa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\tomek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -59,27 +57,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\Wheelo.MortalCombat.Database.csproj": {
+    "C:\\Users\\tomek\\source\\repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\Wheelo.MortalCombat.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\Wheelo.MortalCombat.Database.csproj",
+        "projectUniqueName": "C:\\Users\\tomek\\source\\repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\Wheelo.MortalCombat.Database.csproj",
         "projectName": "Wheelo.MortalCombat.Database",
-        "projectPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\Wheelo.MortalCombat.Database.csproj",
-        "packagesPath": "C:\\Users\\bzapa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\obj\\",
+        "projectPath": "C:\\Users\\tomek\\source\\repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\Wheelo.MortalCombat.Database.csproj",
+        "packagesPath": "C:\\Users\\tomek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tomek\\source\\repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\bzapa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\tomek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -92,8 +88,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj": {
-                "projectPath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj"
+              "C:\\Users\\tomek\\source\\repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\tomek\\source\\repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj"
               }
             }
           }
@@ -122,7 +118,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
