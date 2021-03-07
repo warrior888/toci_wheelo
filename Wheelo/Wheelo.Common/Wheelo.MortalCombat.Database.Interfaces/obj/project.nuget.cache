@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RShSS7Tee+YI6gg7u/SVaE6Pq+e57mHU1ZmKmZlX9/UyK7mzwXKaQYkP+wnHN0oha+E5mApavAESSHx0uxEhvg==",
+  "dgSpecHash": "KjTlc3jtP+WC8rWhw1WPUWitEw6qo6JUIUrhFREpu64PAY1VzeJih2j9tAXzsglePVtt0LE6cPGFhp7TFa3CxQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bzapa\\Documents\\toci_wheelo\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj",
+  "projectFilePath": "C:\\Users\\tomek\\source\\repos\\toci_wheelo2\\Wheelo\\Wheelo.Common\\Wheelo.MortalCombat.Database.Interfaces\\Wheelo.MortalCombat.Database.Interfaces.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
