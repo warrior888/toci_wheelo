@@ -1267,6 +1267,7 @@
       },
       "Wheelo.MortalCombat.Database/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.0-preview.1.21102.2",
           "Wheelo.MortalCombat.Database.Interfaces": "1.0.0"
         },
         "runtime": {

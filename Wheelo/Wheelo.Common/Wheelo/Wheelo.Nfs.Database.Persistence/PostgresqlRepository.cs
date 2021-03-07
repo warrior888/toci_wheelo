@@ -11,21 +11,21 @@ namespace Wheelo.Nfs.Database.Persistence
 {
     public class PostgresqlRepository<TModel> : Repository<TModel>
     {
-        protected wheeloContext DbContext = new wheeloContext();
+        public PostgresqlRepository()
+        {
+            DbContext = new wheeloContext();
+        }
         public override bool Delete(TModel model)
         {
             throw new NotImplementedException();
         }
 
-        public override TModel Insert(TModel model)
+        public override IQueryable<TModel> Select()
         {
-            EntityEntry entry = DbContext.Add(model);
-            DbContext.SaveChanges();
-
-            return (TModel)entry.Entity;
+            throw new NotImplementedException();
         }
 
-        public override IQueryable<TModel> Select()
+        public override TModel Update(TModel model)
         {
             throw new NotImplementedException();
         }

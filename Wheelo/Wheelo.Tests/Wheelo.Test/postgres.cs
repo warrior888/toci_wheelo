@@ -12,6 +12,7 @@ namespace Wheelo.Test
         {
             PostgresqlRepository<User> repouser = new PostgresqlRepository<User>();
 
+     
             repouser.Insert(new User() {  Email = "bzapa@ds.DS", Login = "warrior", Name = "bartek", Password = "beatka", Phone = "731", Surname = "Zapa"});
         }
     }
