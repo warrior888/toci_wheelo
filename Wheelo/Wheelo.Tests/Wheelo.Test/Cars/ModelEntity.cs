@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wheelo.Test.Cars
 {
-    class ModelEntity
+    public class ModelEntity
     {
 
         int a = 1;
