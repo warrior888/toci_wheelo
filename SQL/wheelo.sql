@@ -14,6 +14,14 @@ drop table Invitations;
 drop table UsersLocations;
 drop table Users;
 
+create table GeographicRegion
+(
+	Id serial primary key,
+	IdParent int references GeographicRegion(Id),
+	IdShit int,
+	Name text
+);
+
 create table Users
 (
 	Id serial primary key,
@@ -23,6 +31,7 @@ create table Users
 	Email text not null,
 	Login text not null,
 	Password text not null,
+	IdGeographicRegion int references GeographicRegion(Id),
 	DateWhen timestamp default now()
 );
 
