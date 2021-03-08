@@ -13,7 +13,7 @@ namespace Wheelo.Test.Cars
         [TestMethod]
         public void populatecars()
         {
-            string path = @"C:\Users\johny\Desktop\cars.txt";
+            string path = @"C:\Users\tomek\Desktop\cars.txt";
             FileManager f = new FileManager();
 
             string x = f.ReadFile(path);
@@ -21,13 +21,6 @@ namespace Wheelo.Test.Cars
             JsonParser jsonParser = new JsonParser();
             DatabaseOperability d = new DatabaseOperability();
             d.Reptile(jsonParser.translate(x));
-
-            
-
-
-
-
-
 
 
         }

@@ -23,6 +23,7 @@ namespace Wheelo.Test.Cars
                 Carsbrand ent = createCarEntity(item.Value.First());
 
                 repouser.Insert(ent);
+
             }
 
 
@@ -38,18 +39,12 @@ namespace Wheelo.Test.Cars
         protected Carsbrand createCarEntity(CarEntity carek)
         {
 
-           
-
             Carsbrand c = new Carsbrand();
 
             c.Brand = carek.make;
 
-            
-
-
             return c;
-            // {"year": 2016, "id": 1, "horsepower": 201, "make": "acura", "model": "ilx", "price": 31890.0, "img_url": "http://ts2.mm.bing.net/th?id=OIP.M7656c6f6aaa4d51c3ddee4b1192adeeeH0&pid=15.1"}
-             
+            // {"year": 2016, "id": 1, "horsepower": 201, "make": "acura", "model": "ilx", "price": 31890.0, "img_url": "ht.1"}
             /*
                 public Carsbrand()
                 {
