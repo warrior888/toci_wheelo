@@ -9,7 +9,7 @@ using Wheelo.Nfs.Database.Persistence.Models;
 
 namespace Wheelo.Nfs.Database.Persistence
 {
-    public class PostgresqlRepository<TModel> : Repository<TModel>
+    public class PostgresqlRepository<TModel> : FilteringRepository<TModel> where TModel : class
     {
         public PostgresqlRepository()
         {
@@ -20,10 +20,11 @@ namespace Wheelo.Nfs.Database.Persistence
             throw new NotImplementedException();
         }
 
-        public override IQueryable<TModel> Select()
+        /*public override IQueryable<TModel> Select()
         {
-            throw new NotImplementedException();
-        }
+            return null;
+            //throw new NotImplementedException();
+        }*/
 
         public override TModel Update(TModel model)
         {

@@ -8,7 +8,7 @@ using Wheelo.MortalCombat.Database.Interfaces;
 
 namespace Wheelo.MortalCombat.Database
 {
-    public abstract class Repository<TModel> : IRepository<TModel>
+    public abstract class Repository<TModel> : IRepository<TModel> where TModel : class
     {
         protected DbContext DbContext;
 
@@ -17,15 +17,6 @@ namespace Wheelo.MortalCombat.Database
             EntityEntry entry = DbContext.Remove(model);
             return DbContext.SaveChanges() > 0;
         }
-
-        /*public virtual bool Fetch(TModel model)
-        {
-            EntityEntry entry = DbContext.Remove(model);
-            return DbContext.SaveChanges() > 0;
-        }*/
-
-
-
 
         public virtual TModel Insert(TModel model)
         {
@@ -42,6 +33,11 @@ namespace Wheelo.MortalCombat.Database
 
             return (TModel)entry.Entity;
         }
-        public abstract IQueryable<TModel> Select();
+        public virtual IQueryable<TModel> Select()
+        {
+
+            return DbContext.Set<TModel>().Select(p => p);
+
+        }
     }
 }
